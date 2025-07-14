@@ -1,0 +1,58 @@
+import React from "react";
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+
+const Footer = () => {
+  return (
+    <footer
+      className="relative text-white py-12 px-6 bg-cover bg-center"
+      style={{
+        backgroundImage: `
+          linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
+          linear-gradient(180deg, #0C0022 0%, rgba(18,7,59,0.5) 42.07%, rgba(63,50,228,0) 96.49%),
+          url('/footer-img.jpg')`,
+      }}
+    >
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8">
+        {/* Logo Section */}
+        <div className="flex items-start gap-4 -mt-8">
+          <img src="/accordai-logo.png" alt="Accord AI" className="w-40 h-auto object-contain" />
+        </div>
+
+        {/* Navigation Links */}
+        <div className="flex flex-col gap-4 sm:gap-6 font-light text-md">
+          <p className="text-lg sm:text-xl font-medium">Home.</p>
+          <p className="text-lg sm:text-xl font-medium">About.</p>
+          <p className="text-lg sm:text-xl font-medium">Module.</p>
+          <p className="text-lg sm:text-xl font-medium">Contacts.</p>
+        </div>
+
+        {/* Contact Info */}
+        <div className="flex flex-col gap-6 text-md">
+          <div>
+            <p className="text-lg sm:text-xl font-medium">Contact Us</p>
+            <p className="mt-1 text-sm sm:text-base">+91 8888-7777-66</p>
+            <p className="text-sm sm:text-base">hello@accord.com</p>
+          </div>
+          <div>
+            <p className="text-lg sm:text-xl font-medium">Location</p>
+            <p className="text-sm sm:text-base">483, Dharampeth,</p>
+            <p className="text-sm sm:text-base">Hingna road, Nagpur 440012</p>
+          </div>
+        </div>
+
+        {/* Social Media */}
+        <div>
+          <p className="text-lg sm:text-xl font-semibold mb-4">Social Media</p>
+          <div className="flex gap-6 sm:gap-8 text-white text-xl">
+            <FaFacebookF className="hover:text-blue-400 transition" />
+            <FaTwitter className="hover:text-blue-400 transition" />
+            <FaInstagram className="hover:text-pink-400 transition" />
+            <FaYoutube className="hover:text-red-500 transition" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
