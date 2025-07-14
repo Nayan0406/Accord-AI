@@ -9,7 +9,6 @@ const Contact = () => {
       <ContactSection />
       <ConnectionSection />
       <ContactUs />
-      HIII
     </div>
   )
 }
