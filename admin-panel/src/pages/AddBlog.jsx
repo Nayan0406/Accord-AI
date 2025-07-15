@@ -14,7 +14,7 @@ const AddBlog = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/blogs");
+      const res = await axios.get("https://accord-ai-backend-murex.vercel.app/api/blogs");
       setBlogs(res.data.blogs);
     } catch (error) {
       console.error("Error fetching blogs:", error);

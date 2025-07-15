@@ -14,7 +14,7 @@ const BlogSection = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await fetch('/api/blogs');
+                const response = await fetch('https://accord-ai-backend-murex.vercel.app/api/blogs');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const contentType = response.headers.get('content-type');
                 if (!contentType?.includes('application/json')) {

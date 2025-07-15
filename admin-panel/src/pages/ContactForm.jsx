@@ -10,7 +10,7 @@ const ContactForm = () => {
     const fetchMessages = async () => {
       try {
         console.log("Fetching contact messages...");
-        const response = await axios.get("http://localhost:5000/api/contacts");
+        const response = await axios.get("https://accord-ai-backend-murex.vercel.app/api/contacts");
         console.log("Contact messages:", response.data);
         setMessages(response.data.contacts);
         setLoading(false);

@@ -26,7 +26,7 @@ const ContactSection = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('/api/contacts', {
+      const response = await fetch('https://accord-ai-backend-murex.vercel.app/api/contacts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
