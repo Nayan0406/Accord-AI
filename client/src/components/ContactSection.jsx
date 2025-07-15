@@ -1,8 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoArrowRight } from "react-icons/go";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('/api/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSubmitStatus({ type: 'success', message: 'Message sent successfully!' });
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        const errorData = await response.json();
+        setSubmitStatus({ type: 'error', message: errorData.message || 'Failed to send message' });
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Network error. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="relative w-full overflow-hidden bg-gray-100">
       {/* === BACKGROUND IMAGE SECTION === */}
@@ -85,30 +129,77 @@ const ContactSection = () => {
               </div>
 
               {/* Contact Form */}
-              <form className="space-y-6 mt-30">
-                {["Your Name", "Email Address", "Phone Number"].map((label, i) => (
-                  <div key={i}>
-                    <label className="block text-[#1c1c1e] mb-1">{label}</label>
-                    <input
-                      type={label.includes("Email") ? "email" : "text"}
-                      className="w-full border-b border-gray-300 bg-transparent outline-none py-2"
-                    />
+              <form onSubmit={handleSubmit} className="space-y-6 mt-30">
+                {/* Success/Error Messages */}
+                {submitStatus && (
+                  <div className={`p-4 rounded-lg ${
+                    submitStatus.type === 'success' 
+                      ? 'bg-green-100 border border-green-400 text-green-700' 
+                      : 'bg-red-100 border border-red-400 text-red-700'
+                  }`}>
+                    {submitStatus.message}
                   </div>
-                ))}
+                )}
+
+                <div>
+                  <label className="block text-[#1c1c1e] mb-1">Your Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full border-b border-gray-300 bg-transparent outline-none py-2 focus:border-blue-600 transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[#1c1c1e] mb-1">Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full border-b border-gray-300 bg-transparent outline-none py-2 focus:border-blue-600 transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[#1c1c1e] mb-1">Phone Number</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full border-b border-gray-300 bg-transparent outline-none py-2 focus:border-blue-600 transition-colors"
+                  />
+                </div>
+
                 <div>
                   <label className="block text-[#1c1c1e] mb-1">Message</label>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
                     rows="3"
-                    className="w-full border-b border-gray-300 bg-transparent outline-none py-2 resize-none"
+                    className="w-full border-b border-gray-300 bg-transparent outline-none py-2 resize-none focus:border-blue-600 transition-colors"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white rounded-full px-6 py-3 flex items-center gap-2 font-medium hover:bg-blue-700 transition"
+                  disabled={isSubmitting}
+                  className={`rounded-full px-6 py-3 flex items-center gap-2 font-medium transition ${
+                    isSubmitting
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  }`}
                 >
-                  Leave us a Message
-                  <GoArrowRight className="text-lg" />
+                  {isSubmitting ? 'Sending...' : 'Leave us a Message'}
+                  {!isSubmitting && <GoArrowRight className="text-lg" />}
                 </button>
               </form>
             </div>

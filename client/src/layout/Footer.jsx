@@ -22,7 +22,7 @@ const Footer = () => {
           url('/footer-img.jpg')`,
       }}
     >
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 sm:gap-8">
         {/* Logo Section */}
         <div className="flex items-start gap-4 -mt-20">
           <img src="/accord-ai-logo.png" alt="Accord AI" className="w-60 h-60 object-contain" />
@@ -33,8 +33,34 @@ const Footer = () => {
           <Link to="/" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Home</Link>
           <Link to="/about" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>About</Link>
           <Link to="/module" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Module</Link>
+          <Link to="/blog" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Blog</Link>
           <Link to="/contact" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Contacts</Link>
         </div>
+
+        <div className="flex flex-col gap-4 sm:gap-6 font-light text-md">
+          <Link
+            to="/terms-and-conditions"
+            className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200"
+            onClick={handleNavigation}
+          >
+            Terms and Conditions
+          </Link>
+          <Link
+            to="/privacy-policy"
+            className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200"
+            onClick={handleNavigation}
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            to="/cookies-policy"
+            className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200"
+            onClick={handleNavigation}
+          >
+            Cookies Policy
+          </Link>
+        </div>
+
 
         {/* Contact Info */}
         <div className="flex flex-col gap-6 text-md">

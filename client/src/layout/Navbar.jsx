@@ -71,6 +71,13 @@ const Navbar = () => {
         }`}>
           Module
         </Link>
+        <Link to="/blog" className={`no-underline text-[20px] font-poppins w-[60px] h-[30px] flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+          isActive("/blog") 
+            ? 'text-[#f90b62] font-semibold' 
+            : isScrolled ? 'text-black hover:text-[#0030ff]' : 'text-white hover:text-[#0030ff]'
+        }`}>
+          Blog
+        </Link>
         <Link to="/contact" className={`no-underline text-[20px] font-poppins w-[60px] h-[30px] flex items-center justify-center transition-all duration-300 hover:scale-110 ${
           isActive("/contact") 
             ? 'text-[#f90b62] font-semibold' 
