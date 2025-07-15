@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  const handleNavigation = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <footer
       className="relative text-white py-12 px-6 bg-cover bg-center"
@@ -14,16 +24,16 @@ const Footer = () => {
     >
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8">
         {/* Logo Section */}
-        <div className="flex items-start gap-4 -mt-8">
-          <img src="/accordai-logo.png" alt="Accord AI" className="w-40 h-auto object-contain" />
+        <div className="flex items-start gap-4 -mt-12">
+          <img src="/accord-ai-logo.png" alt="Accord AI" className="w-40 h-auto object-contain" />
         </div>
 
         {/* Navigation Links */}
         <div className="flex flex-col gap-4 sm:gap-6 font-light text-md">
-          <p className="text-lg sm:text-xl font-medium">Home.</p>
-          <p className="text-lg sm:text-xl font-medium">About.</p>
-          <p className="text-lg sm:text-xl font-medium">Module.</p>
-          <p className="text-lg sm:text-xl font-medium">Contacts.</p>
+          <Link to="/" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Home</Link>
+          <Link to="/about" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>About</Link>
+          <Link to="/module" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Module</Link>
+          <Link to="/contact" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Contacts</Link>
         </div>
 
         {/* Contact Info */}

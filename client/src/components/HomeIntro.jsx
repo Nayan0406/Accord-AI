@@ -40,6 +40,33 @@ const HomeIntro = () => (
             </svg>
           </button>
         </div>
+
+        {/* Mobile Social Icons - Below buttons for mobile only */}
+        <div className="md:hidden flex justify-center items-center gap-4 mt-6">
+          <a href="#" className="flex items-center justify-center w-8 h-8 rounded-full border border-white bg-transparent">
+            <FaFacebookF className="w-4 h-4 text-white" />
+          </a>
+          <a href="#" className="flex items-center justify-center w-8 h-8 rounded-full border border-white bg-transparent">
+            <FaInstagram className="w-4 h-4 text-white" />
+          </a>
+          <a href="#" className="flex items-center justify-center w-8 h-8 rounded-full border border-white bg-transparent">
+            <FaTwitter className="w-4 h-4 text-white" />
+          </a>
+        </div>
+
+        {/* Mobile Brand Identity and Explore More - Below social icons for mobile only */}
+        <div className="md:hidden text-center mt-6">
+          <div className="text-white font-poppins text-lg">
+            BRAND'S DIGITAL<br />IDENTITY
+          </div>
+          <a
+            href="#"
+            className="text-white mt-4 font-poppins font-semibold text-lg flex items-center justify-center gap-2 hover:underline"
+          >
+            Explore more
+            <IoIosArrowDropright />
+          </a>
+        </div>
       </div>
 
       {/* Right Social + Explore (Desktop Only) */}
@@ -66,25 +93,12 @@ const HomeIntro = () => (
           <IoIosArrowDropright />
         </a>
       </div>
-
-      {/* Mobile Social Icons (Mobile Only) */}
-      <div className="md:hidden absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-4 z-10">
-        <a href="#" className="flex items-center justify-center w-8 h-8 rounded-full border border-white bg-transparent">
-          <FaFacebookF className="w-4 h-4 text-white" />
-        </a>
-        <a href="#" className="flex items-center justify-center w-8 h-8 rounded-full border border-white bg-transparent">
-          <FaInstagram className="w-4 h-4 text-white" />
-        </a>
-        <a href="#" className="flex items-center justify-center w-8 h-8 rounded-full border border-white bg-transparent">
-          <FaTwitter className="w-4 h-4 text-white" />
-        </a>
-      </div>
     </section>
 
     {/* Intro Section */}
-    <section className="text-center px-4 py-8 sm:py-12 mt-4 sm:mt-8 md:-mt-80 bg-gray-100">
+    <section className="text-center px-4 py-8 sm:py-12 bg-gray-100">
       <div className="relative z-10 max-w-4xl mx-auto">
-        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-[#393654] font-poppins mb-4 sm:mb-6">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-[#393654] font-poppins mb-4 sm:mb-6 sm:-mt-100">
           Quick Intro
         </h2>
         <p className="text-base sm:text-lg md:text-2xl text-[#393654] font-poppins leading-relaxed">
