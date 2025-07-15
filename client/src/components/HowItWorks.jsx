@@ -103,13 +103,13 @@ const HowItWorks = () => (
               <span>Context-Aware Replies – Using NLP + emotional recognition, it understands your current state and responds accordingly.</span>
             </li>
             <li className="flex items-start gap-3 sm:gap-6">
-              <span className="inline-block mt-1 w-10 h-10 flex items-center justify-center">
+              <span className="inline-block mt-1 w-10 h-10 items-center justify-center">
                 <img src="/icon-3.png" alt="" />
               </span>
               <span>Guided Living System – It gives you recommendations, insights, reflections, or calming prompts tailored to your soul’s journey.</span>
             </li>
             <li className="flex items-start gap-3 sm:gap-6">
-              <span className="inline-block mt-1 w-10 h-10 flex items-center justify-center">
+              <span className="inline-block mt-1 w-10 h-10 items-center justify-center">
                 <img src="/icon-3.png" alt="" />
               </span>
               <span>Daily Support, Spiritual Alignment – From daily planning to deeper soul work, Accord AI becomes your consistent companion.</span>

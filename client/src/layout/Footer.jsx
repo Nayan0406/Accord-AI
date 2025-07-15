@@ -12,6 +12,7 @@ const Footer = () => {
   const handleNavigation = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
     <footer
       className="relative text-white py-12 px-6 bg-cover bg-center"
@@ -24,12 +25,12 @@ const Footer = () => {
     >
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 sm:gap-8">
         {/* Logo Section */}
-        <div className="flex items-start gap-4 -mt-20">
-          <img src="/accord-ai-logo.png" alt="Accord AI" className="w-60 h-60 object-contain" />
+        <div className="flex justify-center md:justify-start items-start -mt-20 sm:mt-0">
+          <img src="/accord-ai-logo.png" alt="Accord AI" className="w-40 sm:w-52 md:w-60 h-auto object-contain" />
         </div>
 
         {/* Navigation Links */}
-        <div className="flex flex-col gap-4 sm:gap-6 font-light text-md">
+        <div className="flex flex-col gap-3 sm:gap-4 font-light text-md items-center sm:items-start">
           <Link to="/" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Home</Link>
           <Link to="/about" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>About</Link>
           <Link to="/module" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Module</Link>
@@ -37,39 +38,20 @@ const Footer = () => {
           <Link to="/contact" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Contacts</Link>
         </div>
 
-        <div className="flex flex-col gap-4 sm:gap-6 font-light text-md">
-          <Link
-            to="/terms-and-conditions"
-            className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200"
-            onClick={handleNavigation}
-          >
-            Terms and Conditions
-          </Link>
-          <Link
-            to="/privacy-policy"
-            className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200"
-            onClick={handleNavigation}
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            to="/cookies-policy"
-            className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200"
-            onClick={handleNavigation}
-          >
-            Cookies Policy
-          </Link>
+        <div className="flex flex-col gap-3 sm:gap-4 font-light text-md items-center sm:items-start">
+          <Link to="/terms-and-conditions" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Terms and Conditions</Link>
+          <Link to="/privacy-policy" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Privacy Policy</Link>
+          <Link to="/cookies-policy" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Cookies Policy</Link>
         </div>
 
-
         {/* Contact Info */}
-        <div className="flex flex-col gap-6 text-md">
-          <div>
+        <div className="flex flex-col gap-4 sm:gap-5 text-md items-center sm:items-start">
+          <div className="text-center sm:text-left">
             <p className="text-lg sm:text-xl font-medium">Contact Us</p>
             <p className="mt-1 text-sm sm:text-base">+91 8888-7777-66</p>
             <p className="text-sm sm:text-base">hello@accord.com</p>
           </div>
-          <div>
+          <div className="text-center sm:text-left">
             <p className="text-lg sm:text-xl font-medium">Location</p>
             <p className="text-sm sm:text-base">483, Dharampeth,</p>
             <p className="text-sm sm:text-base">Hingna road, Nagpur 440012</p>
@@ -77,7 +59,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media */}
-        <div>
+        <div className="flex flex-col items-center sm:items-start">
           <p className="text-lg sm:text-xl font-semibold mb-4">Social Media</p>
           <div className="flex gap-6 sm:gap-8 text-white text-xl">
             <FaFacebookF className="hover:text-blue-400 transition" />
@@ -86,6 +68,10 @@ const Footer = () => {
             <FaYoutube className="hover:text-red-500 transition" />
           </div>
         </div>
+      </div>
+
+      <div className="flex justify-center py-4 mt-5 text-lg sm:text-xl font-semibold text-center px-2">
+        &copy; All Rights Reserved by Accord AI
       </div>
     </footer>
   );
