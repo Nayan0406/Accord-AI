@@ -24,8 +24,8 @@ const Footer = () => {
     >
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8">
         {/* Logo Section */}
-        <div className="flex items-start gap-4 -mt-12">
-          <img src="/accord-ai-logo.png" alt="Accord AI" className="w-40 h-auto object-contain" />
+        <div className="flex items-start gap-4 -mt-20">
+          <img src="/accord-ai-logo.png" alt="Accord AI" className="w-60 h-60 object-contain" />
         </div>
 
         {/* Navigation Links */}

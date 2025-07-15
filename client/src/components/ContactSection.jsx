@@ -21,7 +21,7 @@ const ContactSection = () => {
             Let's Build AI with <br className="hidden md:block" /> Soul - Together.
           </h1>
           
-          {/* Mobile Social Icons - Below text for mobile only */}
+          {/* Mobile & Tablet Social Icons - Below title (hidden on desktop) */}
           <div className="md:hidden flex justify-center items-center gap-4 mt-8">
             {[FaFacebookF, FaInstagram, FaTwitter].map((Icon, i) => (
               <a
@@ -35,7 +35,7 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Desktop Social Icons - Right side for desktop only */}
+        {/* Desktop Social Icons - Right side (unchanged) */}
         <div className="hidden md:flex absolute right-4 md:right-40 top-1/2 transform -translate-y-1/2 flex-col items-center gap-4 z-10 -mt-60">
           {[FaFacebookF, FaInstagram, FaTwitter].map((Icon, i) => (
             <a
@@ -55,15 +55,15 @@ const ContactSection = () => {
           <div className="grid md:grid-cols-2 gap-10">
             {/* Left Content */}
             <div className="text-center md:text-left">
-              <p className="text-sm font-semibold text-blue-600 tracking-widest uppercase mb-2">
+              <p className="text-sm font-semibold text-blue-600 tracking-widest uppercase mb-2 md:mb-0">
                 Contact Us
               </p>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#1c1c1e] leading-tight mb-6">
                 <span className="text-blue-600">Reach Out</span>, Tune In —
                 <br className="hidden md:block" />
-                Let’s Build the Future in Harmony.
+                Let's Build the Future in Harmony.
               </h2>
-              <div className="w-full max-w-[350px] h-[500px] mx-auto md:mx-0 rounded-xl overflow-hidden mt-20">
+              <div className="w-full max-w-[350px] h-[500px] mx-auto md:mx-0 rounded-xl overflow-hidden md:mt-0">
                 <img
                   src="/contact-form-img.png"
                   alt="AI Bot"
@@ -78,7 +78,7 @@ const ContactSection = () => {
               <div className="bg-white p-6 rounded-xl shadow-sm mb-6">
                 <h3 className="font-semibold text-[#1c1c1e] mb-2">WHY US</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Have an idea, question, or spark of inspiration? Let’s connect
+                  Have an idea, question, or spark of inspiration? Let's connect
                   and explore how we can bring it into reality through AI that
                   understands and elevates.
                 </p>

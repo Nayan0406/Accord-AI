@@ -3,9 +3,9 @@ import React from "react";
 const LimtlessSection = () => {
   return (
     <section className="bg-gray-100 w-full py-8 sm:py-12 md:py-16 px-2 sm:px-4">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6 sm:gap-8 md:gap-10">
         {/* Left: 2x2 Avatar Grid */}
-        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 order-1 md:order-none">
           <img
             src="/person-1.png"
             alt="avatar"
@@ -29,7 +29,7 @@ const LimtlessSection = () => {
         </div>
 
         {/* Center: Headline + Buttons */}
-        <div className="text-center md:text-left flex-1 justify-center ml-0 sm:ml-15 md:ml-30">
+        <div className="text-center md:text-left flex-1 order-3 md:order-none mt-4 sm:mt-6 md:mt-0">
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold text-[#1c1c1e] mb-4 sm:mb-5 md:mb-6 leading-tight">
             Limitless AI for <br /> Limitless Potential.
           </h1>
@@ -59,7 +59,7 @@ const LimtlessSection = () => {
         </div>
 
         {/* Right: Subtext */}
-        <div className="max-w-sm text-gray-600 text-left md:text-left text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 md:mb-20">
+        <div className="max-w-sm text-gray-600 text-left md:text-left text-base sm:text-lg md:text-xl lg:text-2xl order-2 md:order-none">
           <p>
             Unlock the full power of AI to accelerate innovation and achieve
             extraordinary results.
