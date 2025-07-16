@@ -10,7 +10,7 @@ const TechnologiesSection = () => {
   };
 
   return (
-    <section className="bg-gray-100 w-full py-8 sm:py-12 md:py-14 lg:py-16 px-4">
+    <section className="bg-white w-full py-8 sm:py-12 md:py-14 lg:py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="mb-10 flex flex-col md:flex-row items-start justify-between gap-6 md:gap-10">

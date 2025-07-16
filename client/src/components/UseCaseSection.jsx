@@ -11,7 +11,7 @@ const UseCaseSection = () => {
   ];
 
   return (
-    <section className="w-full min-h-screen bg-gray-50 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <section className="w-full min-h-screen bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
@@ -54,7 +54,7 @@ const UseCaseSection = () => {
           {/* Right Content - Paragraph and Image */}
           <div className="space-y-6 lg:space-y-8">
             {/* Paragraph Section */}
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-gray-100 p-6 rounded-lg shadow-sm">
               <span className="inline-block bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium uppercase tracking-wide mb-4">
                 Paragraph
               </span>

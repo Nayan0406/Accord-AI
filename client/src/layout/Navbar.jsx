@@ -31,11 +31,11 @@ const Navbar = () => {
       }`}
     >
       {/* Logo */}
-      <div className="flex items-center ml-0 md:ml-20">
+      <div className="flex items-center ml-0 sm:ml-10 md:ml-20">
         <img
           src={isScrolled ? "/accordai-logo.png" : "/accord-ai-logo.png"}
           alt="Logo"
-          className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[200px] md:h-[200px] transition-all duration-300"
+          className="w-[50px] h-[50px] sm:w-[40px] sm:h-[40px] md:w-[70px] md:h-[70px] transition-all duration-300"
         />
       </div>
 
@@ -52,15 +52,15 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Desktop Links */}
-      <div className="hidden md:flex items-center gap-10 mr-6 lg:mr-10">
+      {/* Desktop & Tablet Links */}
+      <div className="hidden md:flex items-center gap-6 sm:gap-8 md:gap-10 mr-4 sm:mr-6 lg:mr-10">
         {["/", "/about", "/module", "/blog", "/contact"].map((path, idx) => {
           const names = ["Home", "About", "Module", "Blog", "Contact"];
           return (
             <Link
               key={path}
               to={path}
-              className={`no-underline text-[18px] font-poppins w-[60px] h-[30px] flex items-center justify-center transition-all duration-300 hover:scale-110 ${
+              className={`no-underline text-[16px] sm:text-[17px] md:text-[18px] font-poppins w-[60px] h-[30px] flex items-center justify-center transition-all duration-300 hover:scale-110 ${
                 isActive(path)
                   ? "text-[#f90b62] font-semibold"
                   : isScrolled
@@ -74,9 +74,9 @@ const Navbar = () => {
         })}
       </div>
 
-      {/* Desktop Credits */}
-      <div className="hidden md:block mr-4 lg:mr-10">
-        <button className="bg-[#0030ff] text-white border-none rounded-[40px] px-6 py-2 text-[14px] font-medium font-poppins shadow-[0_0_0_2px_#0030ff44] flex items-center cursor-pointer w-[140px] h-[50px] border border-[#0030ff]">
+      {/* Desktop & Tablet Credits Button */}
+      <div className="hidden md:block mr-2 sm:mr-6 lg:mr-10">
+        <button className="bg-[#0030ff] text-white border-none rounded-[40px] px-5 sm:px-6 py-2 text-[13px] sm:text-[14px] font-medium font-poppins shadow-[0_0_0_2px_#0030ff44] flex items-center cursor-pointer w-[120px] sm:w-[130px] md:w-[140px] h-[45px] sm:h-[50px] border border-[#0030ff]">
           Credits 10
           <AiOutlineThunderbolt className="w-5 h-5 ml-2" />
         </button>

@@ -2,7 +2,7 @@ import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 
 const SmarterModuleSection = () => (
-  <section className="w-full min-h-screen bg-gray-100 flex flex-col items-center justify-center px-4 py-16 relative">
+  <section className="w-full min-h-screen bg-white flex flex-col items-center justify-center px-4 py-16 relative">
     <div className="w-full max-w-7xl mx-auto relative z-10">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">

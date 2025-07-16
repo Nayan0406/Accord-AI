@@ -3,7 +3,7 @@ import { IoIosArrowDropright } from "react-icons/io";
 
 const MissionSection = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-center relative py-8 sm:py-12 md:py-14 lg:py-16 px-4 -mt-60 sm:-mt-50 md:-mt-40 bg-gray-100">
+    <section className="w-full flex flex-col items-center justify-center relative py-8 sm:py-12 md:py-14 lg:py-16 px-4 -mt-60 sm:-mt-170 md:-mt-100 bg-gray-50">
       <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
         {/* Top Text Section */}
         <div className="flex flex-col md:grid md:grid-cols-2 gap-6 items-start">
@@ -16,7 +16,7 @@ const MissionSection = () => {
               Maximize Profits with Smart AI Solutions.
             </h2>
           </div>
-          <div className="bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-sm">
+          <div className="bg-gray-100 p-4 sm:p-5 md:p-6 rounded-xl shadow-sm">
             <h3 className="font-semibold text-base sm:text-lg text-[#1c1c1e] mb-2">
               WHO WE ARE
             </h3>
@@ -74,7 +74,7 @@ const MissionSection = () => {
         {/* Vision & Mission Section */}
         <div className="flex flex-col md:flex-row md:gap-10">
           <div className="hidden md:block w-[200px] h-[1px]" /> {/* Spacer */}
-          <div className="bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-sm w-full">
+          <div className="bg-gray-100 p-4 sm:p-5 md:p-6 rounded-xl shadow-sm w-full">
             <h3 className="font-semibold text-base sm:text-lg text-[#1c1c1e] mb-2">
               Our Vision & Mission
             </h3>

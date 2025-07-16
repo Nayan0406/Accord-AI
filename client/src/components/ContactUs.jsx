@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-    <section className="w-full bg-gray-100 py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
+    <section className="w-full bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10 lg:gap-12">
         {/* Left Text & Input Section */}
         <div className="flex-1 w-full max-w-xl lg:max-w-none mx-auto lg:mx-0">

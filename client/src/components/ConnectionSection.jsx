@@ -2,7 +2,7 @@ import { FiPhoneCall } from "react-icons/fi";
 
 const ConnectSection = () => {
   return (
-    <section className="bg-gray-100 py-12 sm:py-16 lg:py-20 px-4 sm:px-6 w-full min-h-min flex flex-col items-center justify-center relative">
+    <section className="bg-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6 w-full min-h-min flex flex-col items-center justify-center relative">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-12">
         {/* Left Image - Full width on mobile, 1/3 on desktop */}
         <div className="w-full lg:w-1/3 max-w-md lg:max-w-none mx-auto lg:mx-0">

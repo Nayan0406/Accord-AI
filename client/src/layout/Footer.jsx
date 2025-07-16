@@ -26,7 +26,7 @@ const Footer = () => {
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 sm:gap-8">
         {/* Logo Section */}
         <div className="flex justify-center md:justify-start items-start -mt-20 sm:mt-0">
-          <img src="/accord-ai-logo.png" alt="Accord AI" className="w-40 sm:w-52 md:w-60 h-auto object-contain" />
+          <img src="/accord-ai-logo.png" alt="Accord AI" className="w-10 h:50 sm:w-30 sm:h-30 md:w-40 object-contain" />
         </div>
 
         {/* Navigation Links */}
