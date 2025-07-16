@@ -9,7 +9,7 @@ import Contact from './pages/Contact'
 import CookiesPolicy from './components/Cookies-Policy'
 import PrivacyPolicy from './components/Privacy-Policy'
 import TermsAndCondition from './components/Terms-And-Condition'
-import TermsAndUse from './components/Terms-and-use'
+import TermsAndUse from "./components/TermsAndUse";
 import BlogDetails from './components/BlogDetails'
 import { Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
