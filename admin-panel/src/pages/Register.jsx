@@ -16,7 +16,7 @@ const Register = () => {
         setMessage("");
         try {
             const res = await axios.post(
-                "http://localhost:5000/api/auth/register",
+                "https://accord-ai-backend-murex.vercel.app/api/auth/register",
                 form
             );
             setMessage("✅ Registered successfully! Now you can log in.");

@@ -13,10 +13,10 @@ const BlogDetails = () => {
     const fetchBlogData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:5000/api/blogs/${id}`);
+        const res = await axios.get(`https://accord-ai-backend-murex.vercel.app/api/blogs/${id}`);
         setBlog(res.data.blog);
 
-        const all = await axios.get("http://localhost:5000/api/blogs");
+        const all = await axios.get("https://accord-ai-backend-murex.vercel.app/api/blogs");
         const others = all.data.blogs.filter((b) => b._id !== id);
         setOtherBlogs(others);
       } catch (err) {
