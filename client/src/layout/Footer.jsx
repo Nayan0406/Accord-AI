@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex justify-center py-4 mt-5 text-lg sm:text-xl font-semibold text-center px-2">
+      <div className="flex justify-center py-4 mt-5 text-lg sm:text-xl font-semibold text-center px-2 -mb-10">
         &copy; All Rights Reserved by Accord AI
       </div>
     </footer>

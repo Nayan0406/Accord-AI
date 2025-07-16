@@ -53,7 +53,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop & Tablet Links */}
-      <div className="hidden md:flex items-center gap-6 sm:gap-8 md:gap-10 mr-4 sm:mr-6 lg:mr-10">
+      <div className="hidden md:flex items-center gap-6 sm:gap-8 md:gap-10 lg:mr-10">
         {["/", "/about", "/module", "/blog", "/contact"].map((path, idx) => {
           const names = ["Home", "About", "Module", "Blog", "Contact"];
           return (
@@ -75,7 +75,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop & Tablet Credits Button */}
-      <div className="hidden md:block mr-2 sm:mr-6 lg:mr-10">
+      <div className="hidden md:block lg:mr-10">
         <button className="bg-[#0030ff] text-white border-none rounded-[40px] px-5 sm:px-6 py-2 text-[13px] sm:text-[14px] font-medium font-poppins shadow-[0_0_0_2px_#0030ff44] flex items-center cursor-pointer w-[120px] sm:w-[130px] md:w-[140px] h-[45px] sm:h-[50px] border border-[#0030ff]">
           Credits 10
           <AiOutlineThunderbolt className="w-5 h-5 ml-2" />

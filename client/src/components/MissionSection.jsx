@@ -3,8 +3,8 @@ import { IoIosArrowDropright } from "react-icons/io";
 
 const MissionSection = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-center relative py-8 sm:py-12 md:py-14 lg:py-16 px-4 -mt-60 sm:-mt-170 md:-mt-100 bg-white">
-      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
+    <section className="w-full flex flex-col items-center justify-center relative z-20 -mt-36 sm:-mt-48 md:-mt-64 lg:-mt-72 px-4 py-8 sm:py-12 md:py-14 lg:py-16 bg-white bg-opacity-0">
+  <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
         {/* Top Text Section */}
         <div className="flex flex-col md:grid md:grid-cols-2 gap-6 items-start">
           <div>

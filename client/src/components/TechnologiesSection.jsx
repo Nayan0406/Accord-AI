@@ -86,7 +86,7 @@ const TechnologiesSection = () => {
               </div>
 
               {/* Content */}
-              <div className="flex flex-1 items-center justify-between pl-10 pr-2">
+              <div className="flex flex-1 items-center justify-between pl-10 md:pr-2">
                 <div className="text-sm sm:text-base md:text-lg font-medium text-[#1c1c1e] max-w-[65%]">
                   {card.title}
                 </div>

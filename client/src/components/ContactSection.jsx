@@ -63,8 +63,8 @@ const ContactSection = () => {
         <div className="absolute bottom-0 left-0 w-full h-96 bg-gradient-to-b from-transparent to-white z-0 pointer-events-none" />
 
         {/* Centered Text */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white text-center px-4 -mt-80 w-full">
-          <h1 className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-bold leading-tight font-poppins  md:mt-50">
+        <div className="absolute top-[60%] sm:top-[55%] md:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white text-center px-4 -mt-70 sm:-mt-80 md:-mt-50 w-full">
+          <h1 className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-bold leading-tight font-poppins text-center">
             <span className="italic font-light">&ldquo;</span>
             Let's Build AI with <br className="hidden md:block" /> Soul - Together.
           </h1>
@@ -78,18 +78,22 @@ const ContactSection = () => {
             ))}
           </div>
 
-          {/* Tablet Social Icons - Below Title */}
-          <div className="hidden sm:flex md:hidden justify-center items-center gap-4 mt-8">
+          {/* Tablet Social Icons - Below Title in Row */}
+          <div className="hidden sm:flex lg:hidden flex-row justify-center items-center gap-6 mt-16">
             {[FaFacebookF, FaInstagram, FaTwitter].map((Icon, i) => (
-              <a key={i} href="#" className="w-10 h-10 flex items-center justify-center border border-white rounded-full">
-                <Icon className="text-white w-5 h-5" />
+              <a
+                key={i}
+                href="#"
+                className="w-14 h-14 flex items-center justify-center border-2 border-white rounded-full hover:bg-white/10 transition-colors"
+              >
+                <Icon className="text-white w-7 h-7" />
               </a>
             ))}
           </div>
         </div>
 
         {/* Desktop Social Icons */}
-        <div className="hidden md:flex absolute right-4 md:right-40 top-1/2 transform -translate-y-1/2 flex-col items-center gap-4 z-10 -mt-50 mr-30">
+        <div className="hidden lg:flex absolute right-4 lg:right-40 top-1/2 transform -translate-y-1/2 flex-col items-center gap-4 z-10 -mt-50 lg:mr-30">
           {[FaFacebookF, FaInstagram, FaTwitter].map((Icon, i) => (
             <a key={i} href="#" className="w-10 h-10 flex items-center justify-center border border-white rounded-full">
               <Icon className="text-white w-5 h-5" />
@@ -103,7 +107,7 @@ const ContactSection = () => {
         <div className="max-w-6xl mx-auto p-4 md:p-10">
           <div className="grid md:grid-cols-2 gap-10">
             {/* Left Content */}
-            <div className="flex flex-col items-center text-center md:items-start md:text-left">
+            <div className="flex flex-col items-center text-center md:items-start md:text-left order-2 md:order-1">
               <p className="text-sm font-semibold text-blue-600 tracking-widest uppercase mb-2 md:mb-0">
                 Contact Us
               </p>
@@ -121,11 +125,11 @@ const ContactSection = () => {
             </div>
 
             {/* Right Form */}
-            <div className="flex flex-col items-center md:items-start">
+            <div className="flex flex-col items-center md:items-start order-1 md:order-2">
               {/* WHY US Box */}
               <div className="bg-white p-6 rounded-xl shadow-sm mb-6 text-center md:text-left w-full">
                 <h3 className="font-semibold text-[#1c1c1e] mb-2">WHY US</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm text-gray-600 leading-relaxed text-center md:text-left">
                   Have an idea, question, or spark of inspiration? Let's connect
                   and explore how we can bring it into reality through AI that
                   understands and elevates.
@@ -133,14 +137,13 @@ const ContactSection = () => {
               </div>
 
               {/* Contact Form */}
-              <form onSubmit={handleSubmit} className="space-y-6 mt-30 w-full">
+              <form onSubmit={handleSubmit} className="space-y-6 mt-20 w-full">
                 {/* Success/Error Messages */}
                 {submitStatus && (
-                  <div className={`p-4 rounded-lg ${
-                    submitStatus.type === 'success' 
-                      ? 'bg-green-100 border border-green-400 text-green-700' 
+                  <div className={`p-4 rounded-lg ${submitStatus.type === 'success'
+                      ? 'bg-green-100 border border-green-400 text-green-700'
                       : 'bg-red-100 border border-red-400 text-red-700'
-                  }`}>
+                    }`}>
                     {submitStatus.message}
                   </div>
                 )}
@@ -197,11 +200,10 @@ const ContactSection = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`rounded-full px-6 py-3 flex items-center gap-2 font-medium transition ${
-                      isSubmitting
+                    className={`rounded-full px-6 py-3 flex items-center gap-2 font-medium transition ${isSubmitting
                         ? 'bg-gray-400 cursor-not-allowed'
                         : 'bg-blue-600 hover:bg-blue-700 text-white'
-                    }`}
+                      }`}
                   >
                     {isSubmitting ? 'Sending...' : 'Leave us a Message'}
                     {!isSubmitting && <GoArrowRight className="text-lg" />}

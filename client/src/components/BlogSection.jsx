@@ -103,7 +103,7 @@ const BlogSection = () => {
                             placeholder="Search blog posts..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-600 outline-none"
+                            className="w-full pl-10 md:pr-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-600 outline-none"
                         />
                     </div>
                     <p className="text-sm text-gray-500 mt-1 sm:mt-0">
