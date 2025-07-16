@@ -130,7 +130,7 @@ const SmarterModule2 = () => {
   const handleCardClick = (module) => setSelectedModule(module);
 
   return (
-    <div className="bg-white pt-12 md:pt-16 px-4 sm:px-6 relative -mt-52">
+    <div className="bg-white pt-12 md:pt-16 px-4 sm:px-6 relative -mt-100">
       {/* Hero Header Section */}
       <div className="max-w-7xl mx-auto mb-12 md:mb-20">
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6 sm:mb-8 md:mb-12">
