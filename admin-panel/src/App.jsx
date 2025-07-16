@@ -11,7 +11,7 @@ import Navbar from './layout/Navbar';
 import ContactForm from './pages/ContactForm';
 
 import Login from './pages/Login';
-import Register from './pages/Register';
+// import Register from './pages/Register';
 import PrivateRoute from './components/PrivateRoute';
 // import Home from './pages/Home';
 
@@ -25,8 +25,8 @@ function App() {
 
       <Routes>
         {/* Public Routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Register />} />
+        <Route path="/" element={<Login />} />
+        {/* <Route path="/" element={<Register />} /> */}
 
         {/* Redirect old paths to /admin/* (optional support for older bookmarks) */}
         {/* <Route path="/home" element={<Navigate to="/admin/home" replace />} /> */}

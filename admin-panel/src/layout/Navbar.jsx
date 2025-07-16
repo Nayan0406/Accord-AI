@@ -23,7 +23,7 @@ const Navbar = () => {
     toast.success("Logged out successfully");
 
     setTimeout(() => {
-      navigate("/login");
+      navigate("/");
     }, 500); 
   };
 

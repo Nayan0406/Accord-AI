@@ -16,7 +16,7 @@ const Register = () => {
         setMessage("");
         try {
             const res = await axios.post(
-                "https://accord-ai-backend-murex.vercel.app/api/auth/register",
+                "http://localhost:5000/api/auth/register",
                 form
             );
             setMessage("✅ Registered successfully! Now you can log in.");
@@ -57,7 +57,7 @@ const Register = () => {
                         value={form.username}
                         onChange={handleChange}
                         required
-                        placeholder="e.g. vaipali_admin"
+                        placeholder="e.g. accord-ai_admin"
                         className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
                 </div>
@@ -70,7 +70,7 @@ const Register = () => {
                         value={form.email}
                         onChange={handleChange}
                         required
-                        placeholder="e.g. admin@vaipali.com"
+                        placeholder="e.g. admin@accord-ai.com"
                         className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
                 </div>

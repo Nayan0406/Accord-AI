@@ -2,6 +2,7 @@ import React from 'react';
 
 const CookiesPolicy = () => {
   return (
+    <div className='bg-gradient-to-br from-blue-300 to-blue-50'>
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 text-gray-800">
       <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-center">Cookies Policy</h1>
 
@@ -118,6 +119,7 @@ const CookiesPolicy = () => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

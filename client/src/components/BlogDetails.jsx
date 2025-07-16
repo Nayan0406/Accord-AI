@@ -13,10 +13,10 @@ const BlogDetails = () => {
     const fetchBlogData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`https://accord-ai-backend-murex.vercel.app/api/blogs/${id}`);
+        const res = await axios.get(`http://localhost:5000/api/blogs/${id}`);
         setBlog(res.data.blog);
 
-        const all = await axios.get("https://accord-ai-backend-murex.vercel.app/api/blogs");
+        const all = await axios.get("http://localhost:5000/api/blogs");
         const others = all.data.blogs.filter((b) => b._id !== id);
         setOtherBlogs(others);
       } catch (err) {
@@ -48,7 +48,7 @@ const BlogDetails = () => {
   }
 
   return (
-    <div className="bg-gray-300 min-h-screen pt-24 px-4 sm:px-6 lg:px-12">
+    <div className="bg-gradient-to-br from-blue-400 to-blue-50 min-h-screen pt-24 px-4 sm:px-6 lg:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Left Sidebar: Other Blogs */}
         <aside className="order-last lg:order-first sticky top-28 self-start space-y-6">

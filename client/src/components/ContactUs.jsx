@@ -25,9 +25,9 @@ const ContactUs = () => {
         {/* Right Side Image */}
         <div className="flex-1 w-full mt-8 sm:mt-10 lg:mt-0 flex justify-center lg:justify-end">
           <img
-            src="/lizard-img.png"
+            src="/ai-img-2.png"
             alt="Chameleons AI"
-            className="rounded-xl sm:rounded-2xl w-full max-w-[500px] sm:max-w-[600px] h-auto object-cover"
+            className="rounded-xl sm:rounded-2xl w-full max-w-[300px] sm:max-w-[600px] h-auto object-cover"
           />
         </div>
       </div>

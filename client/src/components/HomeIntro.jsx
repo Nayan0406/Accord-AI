@@ -23,7 +23,7 @@ const HomeIntro = () => (
           {/* Left Content */}
           <div className="text-center md:text-left max-w-xl lg:max-w-3xl flex flex-col items-center md:items-start">
             <h1 className="text-white text-xl sm:text-2xl md:text-4xl lg:text-4xl font-light leading-tight mb-6 font-poppins mt-0 sm:mt-4">
-              <span className="italic font-light">&ldquo;</span>
+              {/* <span className="italic font-light">&ldquo;</span> */}
               <br className="block sm:hidden" />
               <span className="block sm:inline">
                 Enter the New World System with Accord AI
@@ -34,7 +34,7 @@ const HomeIntro = () => (
                 in the age of Artificial Intelligence — <br className="hidden sm:block" />
                 grounded in universal wisdom.
               </span>
-              <span className="italic font-light">&rdquo;</span>
+              {/* <span className="italic font-light">&rdquo;</span> */}
             </h1>
 
             {/* CTA Buttons */}

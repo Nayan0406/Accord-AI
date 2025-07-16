@@ -66,7 +66,7 @@ const UseCaseSection = () => {
             {/* Image Section */}
             <div className="relative rounded-2xl overflow-hidden shadow-lg">
               <img 
-                src="/use-case-img.png" 
+                src="/ai-img-1.png" 
                 alt="AI Panda with futuristic design" 
                 className="w-full h-[300px] sm:h-[400px] lg:h-[350px] object-cover"
               />

@@ -49,7 +49,7 @@ const HowItWorks = () => (
         <div className="relative w-full max-w-md mx-auto lg:max-w-[290px] pb-4 lg:pb-20">
           <div className="bg-gray-100 rounded-2xl p-4 md:p-6 h-auto md:min-h-[350px] flex flex-col items-start">
             <img
-              src="/howitwork-img-1.png"
+              src="/ai-img-3.png"
               alt="Discovery & Consultation"
               className="rounded-xl w-full h-[100px] md:h-[140px] object-cover mb-4"
             />
@@ -85,7 +85,7 @@ const HowItWorks = () => (
         {/* Card 3 */}
         <div className="bg-black rounded-2xl shadow-lg w-full max-w-md mx-auto lg:max-w-[290px] h-[320px] md:h-[380px] flex flex-col justify-end items-center overflow-hidden relative">
           <img
-            src="/howitwork-img-2.png"
+            src="/ai-img-4.jpg"
             alt="Next"
             className="absolute inset-0 w-full h-full object-cover rounded-2xl"
           />

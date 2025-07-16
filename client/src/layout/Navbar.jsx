@@ -86,8 +86,8 @@ const Navbar = () => {
       {isOpen && (
         <div className="fixed inset-0 bg-[#18181b] bg-opacity-95 z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden">
           <nav className="w-full flex flex-col items-center gap-8">
-            {["/", "/about", "/module", "/contact"].map((path, idx) => {
-              const names = ["Home", "About", "Module", "Contact"];
+            {["/", "/about", "/module", "/blog", "/contact"].map((path, idx) => {
+              const names = ["Home", "About", "Module", "Blog", "Contact"];
               return (
                 <Link
                   key={path}

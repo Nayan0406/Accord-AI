@@ -2,6 +2,7 @@ import React from 'react';
 
 const TermsAndCondition = () => {
   return (
+    <div className='bg-gradient-to-br from-blue-300 to-blue-50'>
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 text-gray-800">
       <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-center">Terms and Conditions</h1>
 
@@ -105,6 +106,7 @@ const TermsAndCondition = () => {
           <p>We may modify these Terms from time to time to reflect updates to our Services, legal changes, or technical adjustments. If we make material changes, we will notify you in advance by email or in-app notification. Continued use of the Services after changes means you accept the updated Terms.</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -25,7 +25,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("https://accord-ai-backend-murex.vercel.app/api/auth/login", form);
+      const res = await axios.post("http://localhost:5000/api/auth/login", form);
 
       if (res.data.token) {
         login(res.data.token); // update context state

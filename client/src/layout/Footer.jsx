@@ -25,8 +25,8 @@ const Footer = () => {
     >
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 sm:gap-8">
         {/* Logo Section */}
-        <div className="flex justify-center md:justify-start items-start -mt-20 sm:mt-0">
-          <img src="/accord-ai-logo.png" alt="Accord AI" className="w-10 h:50 sm:w-30 sm:h-30 md:w-40 object-contain" />
+        <div className="flex justify-center md:justify-start items-center">
+          <img src="/accord-ai-logo.png" alt="Accord AI" className="w-32 h-20 sm:w-36 sm:h-24 md:w-40 md:h-28 object-contain" />
         </div>
 
         {/* Navigation Links */}
@@ -40,6 +40,7 @@ const Footer = () => {
 
         <div className="flex flex-col gap-3 sm:gap-4 font-light text-md items-center sm:items-start">
           <Link to="/terms-and-conditions" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Terms and Conditions</Link>
+          <Link to="/terms-and-use" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Terms and Use</Link>
           <Link to="/privacy-policy" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Privacy Policy</Link>
           <Link to="/cookies-policy" className="text-lg sm:text-xl font-medium hover:text-blue-400 transition-colors duration-200" onClick={handleNavigation}>Cookies Policy</Link>
         </div>
