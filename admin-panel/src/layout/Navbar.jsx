@@ -64,11 +64,7 @@ const Navbar = () => {
         <div className="md:hidden px-6 pb-4 space-y-2">
           {/* <NavLink to="/" className={navLinkClass} onClick={toggleMenu}>Register</NavLink> */}
           <NavLink to="/add-blog" className={navLinkClass} onClick={toggleMenu}>Add Blog</NavLink>
-          <NavLink to="/admin/add-product" className={navLinkClass} onClick={toggleMenu}>Add Product</NavLink>
-          <NavLink to="/admin/subscription-form" className={navLinkClass} onClick={toggleMenu}>Subscription Form</NavLink>
           <NavLink to="/admin/contact-form" className={navLinkClass} onClick={toggleMenu}>Contact Form</NavLink>
-          <NavLink to="/admin/add-testimonial" className={navLinkClass} onClick={toggleMenu}>Client Testimonial</NavLink>
-
           <button
             onClick={handleLogout}
             className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition cursor-pointer"

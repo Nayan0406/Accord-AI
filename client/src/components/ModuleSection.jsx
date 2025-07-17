@@ -145,7 +145,7 @@ const ModuleSection = () => {
 
         {/* Centered Content */}
         <div className="w-full flex flex-col items-center md:items-center z-10 max-w-xs sm:max-w-xl md:max-w-3xl mb-100 px-3 sm:px-6 md:px-8">
-          <h1 className="text-white text-lg sm:text-xl md:text-[4rem] lg:text-[5rem] font-bold leading-tight mb-4 sm:mb-6 md:mb-10 font-poppins -mt-10 sm:-mt-20 md:mt-0 text-center md:text-center">
+          <h1 className="text-white text-lg sm:text-xl md:text-[4rem] lg:text-[5rem] font-bold leading-tight mb-4 sm:mb-6 md:mb-10 font-poppins -mt-50 sm:-mt-20 md:mt-0 text-center md:text-center">
             <span className="italic font-light">&ldquo;</span>
             <span className="md:hidden">Each Module, a Portal to Higher Living Through AI.</span>
             <span className="hidden md:inline">Each Module, a <br /> Portal to Higher <br /> Living Through AI.</span>
@@ -182,7 +182,7 @@ const ModuleSection = () => {
       </section>
 
       {/* SmarterModule2 Section - Merged Below Module Section */}
-      <div className="w-full flex flex-col items-center justify-center relative z-30 -mt-78 sm:-mt-96 md:-mt-64 lg:-mt-82 px-4 py-4 sm:py-6 md:py-8 lg:py-10 bg-transparent">
+      <div className="w-full flex flex-col items-center justify-center relative z-30 -mt-130 sm:-mt-96 md:-mt-220 lg:-mt-130 px-4 py-4 sm:py-6 md:py-8 lg:py-10 bg-transparent ">
         {/* Hero Header Section */}
         <div className="max-w-7xl mx-auto mb-12 md:mb-20">
           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6 sm:mb-8 md:mb-12">

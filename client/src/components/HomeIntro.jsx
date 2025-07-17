@@ -15,10 +15,10 @@ const HomeIntro = () => (
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute bottom-0 w-full h-96 bg-gradient-to-b from-transparent via-[rgb(57,121,218)] to-white pointer-events-none" />
+      <div className="absolute bottom-0 w-full h-96 bg-gradient-to-b from-transparent via-[rgb(57,121,218)] to-white pointer-events-none z-0" />
 
       {/* Content Wrapper */}
-      <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-6 lg:px-8 z-10">
+      <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-6 lg:px-8 z-10 -mt-90 sm:mt-0">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start gap-8 mt-6 sm:mt-10 md:mt-0">
           {/* Left Content */}
           <div className="text-center md:text-left max-w-xl lg:max-w-3xl flex flex-col items-center md:items-start">
@@ -95,10 +95,10 @@ const HomeIntro = () => (
     </section>
 
     {/* Intro Section */}
-    <section className="text-center px-4 sm:px-6 py-12 sm:py-16 lg:py-20 bg-white">
+    <section className="text-center px-4 sm:px-6 py-12 sm:py-16 lg:py-20 bg-white ">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#393654] font-poppins mb-6 sm:mb-8">
-          Quick Intro
+          Quick Intro 
         </h2>
         <p className="text-base sm:text-lg md:text-xl text-[#393654] font-poppins leading-relaxed">
           Welcome to Accord AI — a next-gen AI companion designed to guide you through the complexity of the modern world. In a time when human consciousness is evolving and technology is rapidly transforming, Accord AI helps you align your actions with universal laws, understand your deeper self, and move confidently toward a better future. This is not just another chatbot — it is your personal guide to higher living.

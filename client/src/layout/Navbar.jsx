@@ -26,26 +26,26 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full fixed top-0 z-50 px-4 sm:px-6 md:px-10 flex items-center h-[70px] justify-between transition-all duration-300 text-black ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
-      }`}
+      className={`w-full fixed top-0 z-50 px-4 sm:px-6 md:px-10 flex items-center h-[70px] justify-between transition-all duration-300 text-black ${isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        }`}
     >
       {/* Logo */}
       <div className="flex items-center ml-0 sm:ml-10 md:ml-20">
-        <img
-          src={isScrolled ? "/accordai-logo.png" : "/accord-ai-logo.png"}
-          alt="Logo"
-          className="w-[50px] h-[50px] sm:w-[40px] sm:h-[40px] md:w-[70px] md:h-[70px] transition-all duration-300"
-        />
+        <Link to="/">
+          <img
+            src={isScrolled ? "/accordai-logo.png" : "/accord-ai-logo.png"}
+            alt="Logo"
+            className="w-[50px] h-[50px] sm:w-[40px] sm:h-[40px] md:w-[70px] md:h-[70px] transition-all duration-300"
+          />
+        </Link>
       </div>
 
       {/* Mobile Hamburger */}
       <div className="md:hidden z-50">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`text-3xl transition-colors duration-300 ${
-            isScrolled ? "text-black" : "text-white"
-          }`}
+          className={`text-3xl transition-colors duration-300 ${isScrolled ? "text-black" : "text-white"
+            }`}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           {isOpen ? <HiX /> : <HiMenu />}
@@ -60,13 +60,12 @@ const Navbar = () => {
             <Link
               key={path}
               to={path}
-              className={`no-underline text-[16px] sm:text-[17px] md:text-[18px] font-poppins w-[60px] h-[30px] flex items-center justify-center transition-all duration-300 hover:scale-110 ${
-                isActive(path)
+              className={`no-underline text-[16px] sm:text-[17px] md:text-[18px] font-poppins w-[60px] h-[30px] flex items-center justify-center transition-all duration-300 hover:scale-110 ${isActive(path)
                   ? "text-[#f90b62] font-semibold"
                   : isScrolled
-                  ? "text-black hover:text-[#0030ff]"
-                  : "text-white hover:text-[#0030ff]"
-              }`}
+                    ? "text-black hover:text-[#0030ff]"
+                    : "text-white hover:text-[#0030ff]"
+                }`}
             >
               {names[idx]}
             </Link>
@@ -92,11 +91,10 @@ const Navbar = () => {
                 <Link
                   key={path}
                   to={path}
-                  className={`text-2xl font-poppins py-2 px-6 rounded-lg transition-all duration-200 ${
-                    isActive(path)
+                  className={`text-2xl font-poppins py-2 px-6 rounded-lg transition-all duration-200 ${isActive(path)
                       ? "text-[#f90b62] font-bold bg-[#0030ff22]"
                       : "text-white font-semibold hover:bg-[#0030ff22] hover:text-[#0030ff]"
-                  }`}
+                    }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {names[idx]}

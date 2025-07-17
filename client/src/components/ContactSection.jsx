@@ -63,7 +63,7 @@ const ContactSection = () => {
         <div className="absolute bottom-0 left-0 w-full h-96 bg-gradient-to-b from-transparent to-white z-0 pointer-events-none" />
 
         {/* Centered Text */}
-        <div className="absolute top-[60%] sm:top-[55%] md:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white text-center px-4 -mt-70 sm:-mt-80 md:-mt-50 w-full">
+        <div className="absolute top-[60%] sm:top-[55%] md:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white text-center px-4 -mt-90 sm:-mt-80 md:-mt-50 w-full">
           <h1 className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-bold leading-tight font-poppins text-center">
             <span className="italic font-light">&ldquo;</span>
             Let's Build AI with <br className="hidden md:block" /> Soul - Together.
@@ -103,8 +103,8 @@ const ContactSection = () => {
       </section>
 
       {/* === CONTACT FORM SECTION === */}
-      <section className="relative -mt-80 z-20 px-4">
-        <div className="max-w-6xl mx-auto p-4 md:p-10">
+      <section className="relative -mt-100 z-20 px-4">
+        <div className="max-w-6xl mx-auto p-4 md:p-10 md:-mt-80">
           <div className="grid md:grid-cols-2 gap-10">
             {/* Left Content */}
             <div className="flex flex-col items-center text-center md:items-start md:text-left order-2 md:order-1">

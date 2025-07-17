@@ -16,7 +16,7 @@ const AboutSection = () => (
       <div className="absolute bottom-0 w-full h-[150vh] bg-gradient-to-b from-transparent via-[rgba(240,241,243,0.3)] to-white z-20 pointer-events-none -mb-100" />
 
       {/* Centered Content (Moved Up More) */}
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-4 sm:px-6 transform -translate-y-40">
+      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center px-4 sm:px-6 transform -translate-y-40 -mt-30">
         <h1 className="text-white text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[2.8rem] font-bold leading-tight mb-4 sm:mb-5 md:mb-6 lg:mb-8 xl:mb-10 font-poppins max-w-3xl">
           <span className="italic font-light">&ldquo;</span>
           Born out of a need for deeper connection and spiritual clarity in a tech-driven world.
@@ -65,7 +65,7 @@ const AboutSection = () => (
     </section>
 
     {/* Mission Section - Merged Below About Section */}
-    <section className="w-full flex flex-col items-center justify-center relative z-30 -mt-68 sm:-mt-96 md:-mt-64 lg:-mt-82 px-4 py-4 sm:py-6 md:py-8 lg:py-10 bg-transparent">
+    <section className="w-full flex flex-col items-center justify-center relative z-30 -mt-110 sm:-mt-96 md:-mt-170 lg:-mt-110 px-4 py-4 sm:py-6 md:py-8 lg:py-10 bg-transparent">
       <div className="max-w-6xl mx-auto space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8">
         {/* Top Text Section */}
         <div className="flex flex-col md:grid md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 items-start">
