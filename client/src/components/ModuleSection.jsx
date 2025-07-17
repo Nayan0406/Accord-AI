@@ -268,7 +268,7 @@ const ModuleSection = () => {
                   <span className="rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center">
                     <img src="/calendar-icon.png" alt="" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
                   </span>
-                  <div className="flex ml-40 sm:ml-12 md:ml-16 lg:ml-40">
+                  <div className="flex ml-60 sm:ml-12 md:ml-16 lg:ml-40">
                     <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block"></span>
                     <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
                     <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
@@ -320,7 +320,7 @@ const ModuleSection = () => {
                     <span className="rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center">
                       <img src="/calendar-icon.png" alt="" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
                     </span>
-                    <div className="flex ml-40 sm:ml-12 md:ml-16 lg:ml-57">
+                    <div className="flex ml-60 sm:ml-12 md:ml-16 lg:ml-57">
                       <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block"></span>
                       <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
                       <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
