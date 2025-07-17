@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ContactUs = () => {
   return (
@@ -17,7 +18,7 @@ const ContactUs = () => {
               className="px-4 sm:px-5 py-2 sm:py-3 rounded-full bg-white text-sm text-gray-700 w-full sm:w-[280px] md:w-[280px] outline-none border border-gray-200 focus:border-blue-500 transition"
             />
             <button className="bg-blue-700 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-full font-medium sm:font-semibold text-sm hover:bg-blue-800 transition w-full sm:w-auto md:w-auto whitespace-nowrap">
-              Contact us
+              <Link to="/contact">Contact us</Link>
             </button>
           </div>
         </div>

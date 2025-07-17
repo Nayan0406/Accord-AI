@@ -407,6 +407,7 @@ const ModuleSection = () => {
           </div>
 
           {/* Bottom Row - 2 Cards Centered */}
+          <div className=" w-full px-4">
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16 relative z-10">
             {/* Card 1 - Universal Laws Module */}
             <div
@@ -497,6 +498,7 @@ const ModuleSection = () => {
                 </button>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

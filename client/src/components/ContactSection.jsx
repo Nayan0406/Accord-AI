@@ -141,8 +141,8 @@ const ContactSection = () => {
                 {/* Success/Error Messages */}
                 {submitStatus && (
                   <div className={`p-4 rounded-lg ${submitStatus.type === 'success'
-                      ? 'bg-green-100 border border-green-400 text-green-700'
-                      : 'bg-red-100 border border-red-400 text-red-700'
+                    ? 'bg-green-100 border border-green-400 text-green-700'
+                    : 'bg-red-100 border border-red-400 text-red-700'
                     }`}>
                     {submitStatus.message}
                   </div>
@@ -180,6 +180,8 @@ const ContactSection = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
+                    pattern="[0-9]{10,}"
+                    inputMode="numeric"
                     className="w-full border-b border-gray-300 bg-transparent outline-none py-2 focus:border-blue-600 transition-colors text-center md:text-left"
                   />
                 </div>
@@ -200,9 +202,9 @@ const ContactSection = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`rounded-full px-6 py-3 flex items-center gap-2 font-medium transition ${isSubmitting
-                        ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-blue-600 hover:bg-blue-700 text-white'
+                    className={`rounded-full px-6 py-3 flex items-center gap-2 font-medium transition cursor-pointer ${isSubmitting
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-blue-600 hover:bg-blue-700 text-white'
                       }`}
                   >
                     {isSubmitting ? 'Sending...' : 'Leave us a Message'}

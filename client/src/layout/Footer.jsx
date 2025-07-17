@@ -65,10 +65,10 @@ const Footer = () => {
         <div className="flex flex-col items-center sm:items-start">
           <p className="text-lg sm:text-xl font-semibold mb-4">Social Media</p>
           <div className="flex gap-6 sm:gap-8 text-white text-xl">
-            <FaFacebookF className="hover:text-blue-400 transition" />
-            <FaTwitter className="hover:text-blue-400 transition" />
-            <FaInstagram className="hover:text-pink-400 transition" />
-            <FaYoutube className="hover:text-red-500 transition" />
+            <FaFacebookF className="hover:text-blue-400 transition cursor-pointer" />
+            <FaTwitter className="hover:text-blue-400 transition cursor-pointer" />
+            <FaInstagram className="hover:text-pink-400 transition cursor-pointer" />
+            <FaYoutube className="hover:text-red-500 transition cursor-pointer" />
           </div>
         </div>
       </div>
