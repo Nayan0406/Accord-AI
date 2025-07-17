@@ -58,7 +58,7 @@ const SmarterModuleSection = () => (
           </div>
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-3 sm:gap-4 z-10">
             <img src="/calendar-icon.png" alt="" className="w-8 h-8 sm:w-10 sm:h-10" />
-            <div className="flex">
+            <div className="flex ml-50">
               <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-300 border border-blue-700 inline-block" />
               <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-2 sm:-ml-3" />
               <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-2 sm:-ml-3" />
@@ -122,7 +122,7 @@ const SmarterModuleSection = () => (
           </div>
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center gap-3 sm:gap-4 z-10">
             <img src="/calendar-icon.png" alt="" className="w-8 h-8 sm:w-10 sm:h-10" />
-            <div className="flex">
+            <div className="flex ml-50">
               <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-300 border border-blue-700 inline-block" />
               <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-2 sm:-ml-3" />
               <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-2 sm:-ml-3" />

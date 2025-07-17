@@ -237,134 +237,18 @@ const ModuleSection = () => {
           </div>
         </div>
 
-        {/* Second Section - Module Grid */}
-        <div className="max-w-7xl mx-auto">
-          {/* First Row - 3 Cards */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-2 sm:mt-3 md:mt-4 lg:mt-6 relative z-10">
-            {/* Card 1 - Emotional Clarity */}
-            <div
-              onClick={() => handleCardClick(modulesData[0])}
-              className="bg-black rounded-xl md:rounded-2xl overflow-hidden relative w-full h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] flex flex-col justify-end shadow-lg hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
-              style={{
-                backgroundImage: "url('/module-img-1.png')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Overlay */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="w-full h-full bg-black/50 rounded-xl md:rounded-2xl" />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, rgba(63,50,228,0) 0%, rgba(18,7,59,0.5) 54.42%, #0C0022 96.49%)",
-                  }}
-                />
-              </div>
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6 flex items-center gap-2 sm:gap-3 z-10">
-                <span className="rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center">
-                  <img src="/calendar-icon.png" alt="" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
-                </span>
-                <div className="flex ml-8 sm:ml-12 md:ml-16 lg:ml-40">
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block"></span>
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
-                </div>
-              </div>
-              <div className="p-4 sm:p-5 md:p-6 z-10 relative flex flex-col justify-end">
-                <h4 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-2 sm:mb-3 md:mb-4">Emotional <br />Clarity</h4>
-                <div className="flex gap-1 sm:gap-2 mb-2 sm:mb-3 md:mb-4 flex-wrap">
-                  <span className="bg-black/60 text-white px-2 py-1 rounded-full text-xs sm:text-sm border border-white">Integration</span>
-                  <span className="bg-black/60 text-white px-2 py-1 rounded-full text-xs sm:text-sm border border-white">AI Empathy</span>
-                </div>
-                <button className="bg-white text-blue-700 font-semibold rounded-full px-3 py-1 sm:px-4 sm:py-1.5 flex items-center gap-1 sm:gap-2 mt-1 sm:mt-2 hover:bg-blue-50 transition text-xs sm:text-sm md:text-base shadow-md">
-                  Try Free 100
-                  <GoArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Card 2 - Spiritual Alignment (Featured Card) */}
-            <div
-              onClick={() => handleCardClick(modulesData[1])}
-              className="bg-black rounded-xl md:rounded-2xl overflow-hidden relative w-full h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] flex flex-col justify-end shadow-lg hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
-              style={{
-                backgroundImage: "url('/module-img-2.png')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background: "linear-gradient(180deg, rgba(63,50,228,0) 0%, rgba(18,7,59,0.5) 54.42%, #0C0022 96.49%)",
-                }}
-              />
-              <div className="p-4 sm:p-5 md:p-6 z-10 relative flex flex-col items-center justify-end h-full">
-                <button className="bg-white/20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center border-2 border-white mb-3 sm:mb-4 md:mb-6 hover:bg-blue-700/30 transition">
-                  <GoArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                </button>
-                <h4 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-center">
-                  Spiritual<br />Alignment
-                </h4>
-              </div>
-            </div>
-
-            {/* Card 3 - Purpose Discovery */}
-            <div
-              onClick={() => handleCardClick(modulesData[2])}
-              className="bg-black rounded-xl md:rounded-2xl overflow-hidden relative w-full h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] flex flex-col justify-end shadow-lg hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
-              style={{
-                backgroundImage: "url('/module-img-3.png')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Overlay */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="w-full h-full bg-black/50 rounded-xl md:rounded-2xl" />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, rgba(63,50,228,0) 0%, rgba(18,7,59,0.5) 54.42%, #0C0022 96.49%)",
-                  }}
-                />
-              </div>
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6 flex items-center gap-2 sm:gap-3 z-10">
-                <span className="rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center">
-                  <img src="/calendar-icon.png" alt="" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
-                </span>
-                <div className="flex ml-8 sm:ml-12 md:ml-16 lg:ml-40">
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block"></span>
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
-                </div>
-              </div>
-              <div className="p-4 sm:p-5 md:p-6 z-10 relative flex flex-col justify-end">
-                <h4 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-2 sm:mb-3 md:mb-4">Purpose<br />Discovery</h4>
-                <div className="flex gap-1 sm:gap-2 mb-2 sm:mb-3 md:mb-4 flex-wrap">
-                  <span className="bg-black/60 text-white px-2 py-1 rounded-full text-xs sm:text-sm border border-white">Propagation</span>
-                  <span className="bg-black/60 text-white px-2 py-1 rounded-full text-xs sm:text-sm border border-white">AI Recognition</span>
-                </div>
-                <button className="bg-white text-blue-700 font-semibold rounded-full px-3 py-1 sm:px-4 sm:py-1.5 flex items-center gap-1 sm:gap-2 mt-1 sm:mt-2 hover:bg-blue-50 transition text-xs sm:text-sm md:text-base shadow-md">
-                  Try Free 100
-                  <GoArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Second Row - 3 Cards */}
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16 relative z-10">
-            {modulesData.slice(3, 6).map((module) => (
+        {/* Module Cards Grid */}
+        <div className="w-full mt-2 sm:mt-3 md:mt-4 lg:mt-6 relative z-10">
+          {/* First 6 cards in 2 rows of 3 */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16 max-w-6xl w-full px-4">
+              {modulesData.slice(0, 6).map((module) => (
               <div
                 key={module.id}
                 onClick={() => handleCardClick(module)}
                 className="bg-black rounded-xl md:rounded-2xl overflow-hidden relative w-full h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] flex flex-col justify-end shadow-lg hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
                 style={{
-                  backgroundImage: `url('/module-img-1.png')`,
+                  backgroundImage: `url('${module.image}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -384,7 +268,7 @@ const ModuleSection = () => {
                   <span className="rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center">
                     <img src="/calendar-icon.png" alt="" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
                   </span>
-                  <div className="flex ml-8 sm:ml-12 md:ml-16 lg:ml-40">
+                  <div className="flex ml-40 sm:ml-12 md:ml-16 lg:ml-40">
                     <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block"></span>
                     <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
                     <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
@@ -404,101 +288,59 @@ const ModuleSection = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Bottom Row - 2 Cards Centered */}
-          <div className=" w-full px-4">
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12 md:mt-16 relative z-10">
-            {/* Card 1 - Universal Laws Module */}
-            <div
-              onClick={() => handleCardClick(modulesData[6])}
-              className="bg-black rounded-xl md:rounded-2xl overflow-hidden relative w-full h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] flex flex-col justify-end shadow-lg hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
-              style={{
-                backgroundImage: `url('/module-img-1.png')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Overlay */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="w-full h-full bg-black/50 rounded-xl md:rounded-2xl" />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, rgba(63,50,228,0) 0%, rgba(18,7,59,0.5) 54.42%, #0C0022 96.49%)",
-                  }}
-                />
-              </div>
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6 flex items-center gap-2 sm:gap-3 z-10">
-                <span className="rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center">
-                  <img src="/calendar-icon.png" alt="" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
-                </span>
-                <div className="flex ml-8 sm:ml-12 md:ml-16 lg:ml-40">
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block"></span>
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
-                </div>
-              </div>
-              <div className="p-4 sm:p-5 md:p-6 z-10 relative flex flex-col justify-end">
-                <h4 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-2 sm:mb-3 md:mb-4">{modulesData[6].title}</h4>
-                <div className="flex gap-1 sm:gap-2 mb-2 sm:mb-3 md:mb-4 flex-wrap">
-                  {modulesData[6].tags?.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="bg-black/60 text-white px-2 py-1 rounded-full text-xs sm:text-sm border border-white">{tag}</span>
-                  ))}
-                </div>
-                <button className="bg-white text-blue-700 font-semibold rounded-full px-3 py-1 sm:px-4 sm:py-1.5 flex items-center gap-1 sm:gap-2 mt-1 sm:mt-2 hover:bg-blue-50 transition text-xs sm:text-sm md:text-base shadow-md">
-                  Try Free 100
-                  <GoArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Card 2 - Safeguard Layer */}
-            <div
-              onClick={() => handleCardClick(modulesData[7])}
-              className="bg-black rounded-xl md:rounded-2xl overflow-hidden relative w-full h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] flex flex-col justify-end shadow-lg hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
-              style={{
-                backgroundImage: `url('${modulesData[7].image}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Overlay */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="w-full h-full bg-black/50 rounded-xl md:rounded-2xl" />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(180deg, rgba(63,50,228,0) 0%, rgba(18,7,59,0.5) 54.42%, #0C0022 96.49%)",
-                  }}
-                />
-              </div>
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6 flex items-center gap-2 sm:gap-3 z-10">
-                <span className="rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center">
-                  <img src="/calendar-icon.png" alt="" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
-                </span>
-                <div className="flex ml-8 sm:ml-12 md:ml-16 lg:ml-40">
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block"></span>
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
-                  <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
-                </div>
-              </div>
-              <div className="p-4 sm:p-5 md:p-6 z-10 relative flex flex-col justify-end">
-                <h4 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-2 sm:mb-3 md:mb-4">{modulesData[7].title}</h4>
-                <div className="flex gap-1 sm:gap-2 mb-2 sm:mb-3 md:mb-4 flex-wrap">
-                  {modulesData[7].tags?.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="bg-black/60 text-white px-2 py-1 rounded-full text-xs sm:text-sm border border-white">{tag}</span>
-                  ))}
-                </div>
-                <button className="bg-white text-blue-700 font-semibold rounded-full px-3 py-1 sm:px-4 sm:py-1.5 flex items-center gap-1 sm:gap-2 mt-1 sm:mt-2 hover:bg-blue-50 transition text-xs sm:text-sm md:text-base shadow-md">
-                  Try Free 100
-                  <GoArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                </button>
-              </div>
             </div>
           </div>
+
+          {/* Last 2 cards centered */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl w-full px-4">
+              {modulesData.slice(6).map((module) => (
+                <div
+                  key={module.id}
+                  onClick={() => handleCardClick(module)}
+                  className="bg-black rounded-xl md:rounded-2xl overflow-hidden relative w-full h-[280px] sm:h-[320px] md:h-[350px] lg:h-[380px] flex flex-col justify-end shadow-lg hover:transform hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+                  style={{
+                    backgroundImage: `url('${module.image}')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  {/* Overlay */}
+                  <div className="absolute inset-0 pointer-events-none">
+                    <div className="w-full h-full bg-black/50 rounded-xl md:rounded-2xl" />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, rgba(63,50,228,0) 0%, rgba(18,7,59,0.5) 54.42%, #0C0022 96.49%)",
+                      }}
+                    />
+                  </div>
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 md:top-6 md:left-6 flex items-center gap-2 sm:gap-3 z-10">
+                    <span className="rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center">
+                      <img src="/calendar-icon.png" alt="" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14" />
+                    </span>
+                    <div className="flex ml-40 sm:ml-12 md:ml-16 lg:ml-57">
+                      <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block"></span>
+                      <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
+                      <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-gray-300 border border-blue-700 inline-block -ml-1 sm:-ml-2"></span>
+                    </div>
+                  </div>
+                  <div className="p-4 sm:p-5 md:p-6 z-10 relative flex flex-col justify-end">
+                    <h4 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-2 sm:mb-3 md:mb-4">{module.title}</h4>
+                    <div className="flex gap-1 sm:gap-2 mb-2 sm:mb-3 md:mb-4 flex-wrap">
+                      {module.tags?.map((tag, tagIndex) => (
+                        <span key={tagIndex} className="bg-black/60 text-white px-2 py-1 rounded-full text-xs sm:text-sm border border-white">{tag}</span>
+                      ))}
+                    </div>
+                    <button className="bg-white text-blue-700 font-semibold rounded-full px-3 py-1 sm:px-4 sm:py-1.5 flex items-center gap-1 sm:gap-2 mt-1 sm:mt-2 hover:bg-blue-50 transition text-xs sm:text-sm md:text-base shadow-md">
+                      Try Free 100
+                      <GoArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
