@@ -1,6 +1,7 @@
 import express from 'express';
 import multer from 'multer';
 import Blog from '../models/Blog.js';
+import axios from 'axios';
 
 const router = express.Router();
 
@@ -39,12 +40,13 @@ router.post("/", upload.single("image"), async (req, res) => {
 // GET /api/blogs
 router.get("/", async (req, res) => {
   try {
-    const blogs = await Blog.find().sort({ date: -1 });
-    res.json({ blogs });
+    const blogs = await Blog.find().sort({ createdAt: -1 });
+    res.json(blogs);
   } catch (err) {
     res.status(500).json({ message: "Failed to fetch blogs" });
   }
 });
+
 
 router.get("/:id", async (req, res) => {
   try {

@@ -13,6 +13,7 @@ import TermsAndUse from "./components/TermsAndUse";
 import BlogDetails from './components/BlogDetails'
 import { Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
+import Pricing from './pages/Pricing'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         <Route path='/terms-and-conditions' element={<TermsAndCondition />} />
         <Route path='/terms-and-use' element={<TermsAndUse />} />
+        <Route path='/pricing' element={<Pricing />} />
       </Routes>
 
       <Footer />

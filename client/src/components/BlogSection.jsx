@@ -9,12 +9,12 @@ const BlogSection = () => {
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredBlogs, setFilteredBlogs] = useState([]);
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await fetch('https://accord-ai-backend-murex.vercel.app/api/blogs');
+                const response = await fetch('http://localhost:5000/api/blogs');
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const contentType = response.headers.get('content-type');
                 if (!contentType?.includes('application/json')) {
@@ -53,9 +53,11 @@ const BlogSection = () => {
         });
     };
 
-    const truncateContent = (content, maxLength = 160) => {
-        return content.length <= maxLength ? content : content.substring(0, maxLength) + '...';
+    const truncateContent = (content, maxLength = 150) => {
+        if (!content || typeof content !== "string") return "";
+        return content.length > maxLength ? content.slice(0, maxLength) + "..." : content;
     };
+
 
     if (loading) {
         return (
@@ -81,8 +83,8 @@ const BlogSection = () => {
                     </div>
                     <h2 className="text-2xl font-bold text-gray-800 mb-3">Oops! Something went wrong</h2>
                     <p className="text-red-600 mb-6 bg-red-50 p-3 rounded-lg border border-red-200">{error}</p>
-                    <button 
-                        onClick={() => window.location.reload()} 
+                    <button
+                        onClick={() => window.location.reload()}
                         className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                     >
                         Try Again
@@ -163,11 +165,11 @@ const BlogSection = () => {
                                 <div className="p-6 flex flex-col flex-grow">
                                     <div className="flex items-center text-sm text-gray-500 mb-4 gap-4">
                                         <span className="flex items-center gap-2 bg-blue-50 px-3 py-1 rounded-full">
-                                            <FaUser className="text-blue-500" /> 
+                                            <FaUser className="text-blue-500" />
                                             <span className="font-medium">{blog.author}</span>
                                         </span>
                                         <span className="flex items-center gap-2 bg-purple-50 px-3 py-1 rounded-full">
-                                            <FaCalendarAlt className="text-purple-500" /> 
+                                            <FaCalendarAlt className="text-purple-500" />
                                             <span className="font-medium">{formatDate(blog.date)}</span>
                                         </span>
                                     </div>
@@ -178,7 +180,7 @@ const BlogSection = () => {
                                         {truncateContent(blog.content)}
                                     </p>
                                     <button className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 mt-auto group-hover:gap-2 transition-all cursor-pointer">
-                                        Read More 
+                                        Read More
                                         <GoArrowUpRight className="ml-1 group-hover:ml-2 transition-all transform group-hover:scale-110" />
                                     </button>
                                 </div>
