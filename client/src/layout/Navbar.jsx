@@ -59,7 +59,7 @@ const Navbar = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`text-3xl transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md p-1
-            ${isScrolled ? "text-black" : "text-white"}
+            ${isOpen ? "text-white" : (isScrolled ? "text-black" : "text-white")}
           `}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
