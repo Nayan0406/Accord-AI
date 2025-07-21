@@ -2,6 +2,7 @@ import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { IoIosArrowDropright } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const HomeIntro = () => (
   <div>
@@ -41,7 +42,7 @@ const HomeIntro = () => (
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
               <button className="flex items-center justify-center bg-blue-700 hover:bg-blue-800 text-white font-semibold font-poppins rounded-full px-6 py-3 shadow-lg transition text-sm sm:text-base border-2 border-blue-700 gap-2 sm:gap-4">
                 <span className="sm:hidden">Explore Accord AI</span>
-                <span className="hidden sm:inline">Explore the Future with Accord AI</span>
+                <Link to="https://accord-ai.buddhistfuturetech.in/"><span className="hidden sm:inline">Explore the Future with Accord AI</span></Link>
                 <GoArrowUpRight className="w-5 h-5" />
               </button>
               <button className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-700/20 hover:bg-blue-700/40 transition">
@@ -65,10 +66,10 @@ const HomeIntro = () => (
               <div className="text-white font-poppins text-lg">
                 BRAND'S DIGITAL<br />IDENTITY
               </div>
-              <a href="#" className="text-white mt-4 font-semibold text-lg flex items-center justify-center gap-2 hover:underline">
+              <Link to="/about" className="text-white mt-4 font-semibold text-lg flex items-center justify-center gap-2 hover:underline">
                 Explore more
                 <IoIosArrowDropright />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -84,10 +85,10 @@ const HomeIntro = () => (
             <div className="text-white mt-8 font-poppins text-lg lg:text-xl text-center">
               BRAND'S DIGITAL<br />IDENTITY
             </div>
-            <a href="#" className="text-white mt-8 font-semibold text-lg lg:text-xl flex items-center gap-2 hover:underline">
+            <Link to="/about" className="text-white mt-8 font-semibold text-lg lg:text-xl flex items-center gap-2 hover:underline">
               Explore more
               <IoIosArrowDropright />
-            </a>
+            </Link>
           </div>
         </div>
 

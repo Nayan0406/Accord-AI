@@ -26,6 +26,7 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/" element={<Register />} /> */}
 
         {/* Redirect old paths to /admin/* (optional support for older bookmarks) */}

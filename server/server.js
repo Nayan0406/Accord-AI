@@ -7,6 +7,8 @@ import Blog from "./models/Blog.js";
 import { storage } from "./utlis/cloudinary.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import authRoutes from "./routes/auth.js";
+import { syncFlaskBlog } from "./utlis/syncFlaskBlog.js";
+import blogRoutes from "./routes/blogRoutes.js";
 
 
 dotenv.config();
@@ -32,6 +34,8 @@ app.use('/uploads', express.static('uploads'));
 app.use("/api/contacts", contactRoutes);
 
 app.use("/api/auth", authRoutes);
+
+app.use("/api/blogs", blogRoutes);
 
 
 
@@ -115,11 +119,25 @@ app.delete("/api/blogs/:id", async (req, res) => {
   }
 });
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB connected");
+(async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("✅ MongoDB connected");
+
+    await syncFlaskBlog(); // ✅ Now this works
+
     app.listen(process.env.PORT, () => {
-      console.log(`Server running on port ${process.env.PORT}`);
+      console.log(`🚀 Server running on port ${process.env.PORT}`);
     });
-  })
-  .catch(err => console.error("MongoDB connection error:", err));
+
+    // Optional: Set interval for daily sync
+    setInterval(() => {
+      console.log("🕒 Daily auto-fetching blogs...");
+      syncFlaskBlog();
+    }, 1000 * 60 * 60 * 24); // 24 hrs
+
+  } catch (err) {
+    console.error("❌ MongoDB connection error:", err);
+  }
+})();
+

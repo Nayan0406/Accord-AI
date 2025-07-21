@@ -14,7 +14,7 @@ const AddBlog = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("https://accord-ai-backend-murex.vercel.app/api/blogs");
+      const res = await axios.get("http://localhost:5000/api/blogs");
       setBlogs(res.data.blogs);
     } catch (error) {
       console.error("Error fetching blogs:", error);
@@ -38,13 +38,13 @@ const AddBlog = () => {
 
     try {
       if (editingId) {
-        await axios.put(`https://accord-ai-backend-murex.vercel.app/api/blogs/${editingId}`, formData, {
+        await axios.put(`http://localhost:5000/api/blogs/${editingId}`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
         toast.success("Blog updated successfully!");
         setEditingId(null);
       } else {
-        await axios.post("https://accord-ai-backend-murex.vercel.app/api/blogs", formData, {
+        await axios.post("http://localhost:5000/api/blogs", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
         toast.success("Blog added successfully!");
@@ -74,7 +74,7 @@ const AddBlog = () => {
   const handleDelete = async (id) => {
     if (confirm("Are you sure you want to delete this blog?")) {
       try {
-        await axios.delete(`https://accord-ai-backend-murex.vercel.app/api/blogs/${id}`);
+        await axios.delete(`http://localhost:5000/api/blogs/${id}`);
         toast.success("Blog deleted successfully!");
         fetchBlogs();
       } catch (err) {
