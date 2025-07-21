@@ -7,6 +7,8 @@ const BlogSection = () => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const blogsPerPage = 6;
     const navigate = useNavigate();
 
 
@@ -35,6 +37,24 @@ const BlogSection = () => {
     const truncateContent = (content, maxLength = 150) => {
         if (!content || typeof content !== "string") return "";
         return content.length > maxLength ? content.slice(0, maxLength) + "..." : content;
+    };
+
+    // Pagination logic
+    const totalPages = Math.ceil(blogs.length / blogsPerPage);
+    const startIndex = (currentPage - 1) * blogsPerPage;
+    const endIndex = startIndex + blogsPerPage;
+    const currentBlogs = blogs.slice(startIndex, endIndex);
+
+    const goToNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const goToPrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
     };
 
 
@@ -74,11 +94,9 @@ const BlogSection = () => {
     }
 
     return (
-        <div className="relative w-full overflow-hidden bg-white mt-10">
-
+        <div className="bg-gradient-to-br from-blue-400 to-blue-50 min-h-screen pt-24">
             {/* Blog Cards */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10">
-
                 {/* Blog Cards */}
                 {blogs.length === 0 ? (
                     <div className="text-center py-16 sm:py-24 md:py-32">
@@ -93,8 +111,9 @@ const BlogSection = () => {
                         </p>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 pb-12 sm:pb-16 md:pb-20">
-                        {blogs.map(blog => (
+                    <>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 pb-12 sm:pb-16 md:pb-20">
+                            {currentBlogs.map(blog => (
                             <div
                                 key={blog._id}
                                 className="group bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col cursor-pointer transform hover:-translate-y-2 border border-white/20"
@@ -136,7 +155,43 @@ const BlogSection = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                        </div>
+                        
+                        {/* Pagination */}
+                        {totalPages > 1 && (
+                            <div className="flex justify-center items-center gap-4 pb-12">
+                                <button
+                                    onClick={goToPrevPage}
+                                    disabled={currentPage === 1}
+                                    className={`px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                                        currentPage === 1
+                                            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                                            : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1'
+                                    }`}
+                                >
+                                    ← Previous
+                                </button>
+                                
+                                <div className="flex items-center gap-2">
+                                    <span className="text-gray-600 font-medium cursor-pointer">
+                                        Page {currentPage} of {totalPages}
+                                    </span>
+                                </div>
+                                
+                                <button
+                                    onClick={goToNextPage}
+                                    disabled={currentPage === totalPages}
+                                    className={`px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                                        currentPage === totalPages
+                                            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                                            : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer'
+                                    }`}
+                                >
+                                    Next →
+                                </button>
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const LimtlessSection = () => {
   return (
@@ -34,9 +35,11 @@ const LimtlessSection = () => {
             Limitless AI for <br /> Limitless Potential.
           </h1>
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2 sm:gap-3 md:gap-4">
-            <button className="bg-blue-700 text-white font-semibold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full hover:bg-blue-800 transition text-sm sm:text-base">
+            <Link to="/contact">
+            <button className="bg-blue-700 text-white font-semibold px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full hover:bg-blue-800 transition text-sm sm:text-base cursor-pointer">
               Let's Talk
             </button>
+            </Link>
             <button className="border border-gray-400 text-gray-800 font-medium px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full flex items-center gap-1 sm:gap-2 justify-center hover:bg-gray-100 transition text-sm sm:text-base">
               More
               <svg

@@ -50,11 +50,27 @@ const BlogDetails = () => {
 
   return (
     <div className="bg-gradient-to-br from-blue-400 to-blue-50 min-h-screen pt-24 px-4 sm:px-6 lg:px-12">
+      <style jsx>{`
+        .hide-scrollbar {
+          -ms-overflow-style: none;  /* Internet Explorer 10+ */
+          scrollbar-width: none;  /* Firefox */
+          scroll-behavior: smooth;  /* Smooth scrolling */
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;  /* Safari and Chrome */
+        }
+        .smooth-scroll {
+          scroll-behavior: smooth;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch; /* iOS smooth scrolling */
+        }
+      `}</style>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* Left Sidebar: Other Blogs */}
-        <aside className="order-last lg:order-first sticky top-28 self-start space-y-6">
-          <h2 className="text-xl font-bold text-gray-800">More Blogs</h2>
-          {otherBlogs.map((b) => (
+        <aside className="order-last lg:order-first sticky top-28 self-start">
+          <h2 className="text-xl font-bold text-gray-800 mb-6">More Blogs</h2>
+          <div className="max-h-[calc(100vh-200px)] overflow-y-auto space-y-6 pr-2 hide-scrollbar smooth-scroll">
+            {otherBlogs.map((b) => (
             <div
               key={b._id}
               onClick={() => navigate(`/blogs/${b._id}`)}
@@ -79,7 +95,8 @@ const BlogDetails = () => {
                 </p>
               </div>
             </div>
-          ))}
+            ))}
+          </div>
         </aside>
 
         {/* Blog Details */}

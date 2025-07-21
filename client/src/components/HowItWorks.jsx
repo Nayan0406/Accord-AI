@@ -1,6 +1,17 @@
 import React from "react";
 
-const HowItWorks = () => (
+const HowItWorks = () => {
+  const scrollToUseCase = () => {
+    const useCaseSection = document.getElementById('UseCaseSection');
+    if (useCaseSection) {
+      useCaseSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  return (
   <section className="w-full min-h-screen bg-white flex flex-col justify-center px-2 sm:px-4 py-8 sm:py-16 relative">
     <div className="max-w-7xl mx-auto w-full relative z-10">
       {/* Header Section */}
@@ -27,7 +38,10 @@ const HowItWorks = () => (
             What's Your Next Idea?
           </span>
           <div className="flex items-center gap-2 justify-center md:justify-end">
-            <button className="flex items-center bg-blue-700 hover:bg-blue-800 text-white font-semibold font-poppins rounded-full px-4 md:px-6 py-2 shadow-lg transition text-sm md:text-base border-2 border-blue-700">
+            <button 
+              onClick={scrollToUseCase}
+              className="flex items-center bg-blue-700 hover:bg-blue-800 text-white font-semibold font-poppins rounded-full px-4 md:px-6 py-2 shadow-lg transition text-sm md:text-base border-2 border-blue-700 cursor-pointer"
+            >
               Get Started
               <svg className="ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" viewBox="0 0 20 20">
                 <path d="M10 4l6 6-6 6M16 10H4" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -90,7 +104,7 @@ const HowItWorks = () => (
             className="absolute inset-0 w-full h-full object-cover rounded-2xl"
           />
           <div className="relative z-10 w-full flex justify-end p-4">
-            <button className="bg-white text-[#393654] font-semibold rounded-full px-6 py-2 flex items-center gap-2 shadow-lg text-sm sm:text-base">
+            <button onClick={scrollToUseCase} className="bg-white text-[#393654] font-semibold rounded-full px-6 py-2 flex items-center gap-2 shadow-lg text-sm sm:text-base cursor-pointer">
               Next
               <svg width="16" height="16" fill="none" viewBox="0 0 20 20">
                 <path d="M10 4l6 6-6 6M16 10H4" stroke="#0030ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -101,6 +115,7 @@ const HowItWorks = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default HowItWorks;
