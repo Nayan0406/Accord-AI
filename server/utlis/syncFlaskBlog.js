@@ -36,9 +36,22 @@ export async function scrapeFlaskBlogs() {
               
               // Fetch actual blog content from the Flask blog page
               let blogContent = `Automatic blog: ${titleMatch[1].trim()}`;
+              let authorName = "AutoBot"; // Default fallback
               try {
                 console.log(`📄 Fetching content from: ${blogUrl}`);
                 const blogRes = await axios.get(blogUrl, { timeout: 10000 });
+                
+                // Extract author information from Flask blog page
+                const authorMatch = blogRes.data.match(/<span class="author">.*?By\s+([^<]+)<\/span>/i) ||
+                                   blogRes.data.match(/<div class="author">.*?By\s+([^<]+)<\/div>/i) ||
+                                   blogRes.data.match(/<p class="author">.*?By\s+([^<]+)<\/p>/i) ||
+                                   blogRes.data.match(/Author:\s*([^<\n]+)/i) ||
+                                   blogRes.data.match(/By\s+([^<\n,]+)/i);
+                
+                if (authorMatch) {
+                  authorName = authorMatch[1].trim();
+                  console.log(`👤 Found author: ${authorName}`);
+                }
                 
                 // Extract content from Flask blog page - looking for content inside blog-container
                 const containerMatch = blogRes.data.match(/<div class="blog-container">([\s\S]*?)<\/div>/);
@@ -68,6 +81,7 @@ export async function scrapeFlaskBlogs() {
                 title: titleMatch[1].trim(),
                 link: blogUrl,
                 description: blogContent,
+                author: authorName, // Use extracted author name
                 image: imageMatch ? imageMatch[1] : "https://via.placeholder.com/600x400/0066cc/ffffff?text=Auto+Blog",
                 date: new Date().toISOString().split('T')[0],
                 source: "auto-scraped"
@@ -151,17 +165,26 @@ export async function syncFlaskBlog() {
       const existing = await Blog.findOne({ title: flaskBlog.title });
 
       if (!existing) {
+        // Determine content and author based on source
+        let content = flaskBlog.description || flaskBlog.content || `Automatic blog: ${flaskBlog.title}`;
+        let author = flaskBlog.author || "AutoBot";
+        
+        // If this is from Flask API (not scraped), ensure we have proper content
+        if (!flaskBlog.source || flaskBlog.source !== "auto-scraped") {
+          content = flaskBlog.content || flaskBlog.description || `Automatic blog: ${flaskBlog.title}`;
+        }
+
         await Blog.create({
           title: flaskBlog.title,
-          content: flaskBlog.description || flaskBlog.content, // Use description for scraped content
-          author: "AutoBot",
+          content: content,
+          author: author,
           date: new Date(flaskBlog.date),
           image: flaskBlog.image,
           link: flaskBlog.link,
           source: flaskBlog.source || "auto"
         });
 
-        console.log(`✅ Added blog: ${flaskBlog.title}`);
+        console.log(`✅ Added blog: ${flaskBlog.title} by ${author}`);
         addedCount++;
       } else {
         console.log(`⏭️ Blog already exists: ${flaskBlog.title}`);

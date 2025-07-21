@@ -6,23 +6,48 @@ import { syncFlaskBlog } from '../utlis/syncFlaskBlog.js';
 
 const router = express.Router();
 
-// Set up multer for file upload
+// Set up multer for file upload with size limit
 const storage = multer.memoryStorage();
-const upload = multer({ storage });
+const upload = multer({ 
+  storage,
+  limits: {
+    fileSize: 5 * 1024 * 1024, // 5MB limit
+  },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith('image/')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only image files are allowed!'), false);
+    }
+  }
+});
 
 // POST /api/blogs
 router.post("/", upload.single("image"), async (req, res) => {
   try {
+    console.log("📝 Creating new blog with data:", req.body);
     const { title, content, author, date } = req.body;
 
     if (!title || !content || !author) {
+      console.log("❌ Missing required fields:", { title: !!title, content: !!content, author: !!author });
       return res.status(400).json({ message: "Title, content, and author are required" });
     }
 
     let imageData = null;
     if (req.file) {
+      console.log("📷 Processing image upload:", req.file.originalname, "Size:", req.file.size, "bytes");
+      
+      // Check if file size is reasonable for base64 conversion
+      if (req.file.size > 3 * 1024 * 1024) { // 3MB limit for base64
+        return res.status(400).json({ 
+          message: "Image file too large. Please use an image smaller than 3MB." 
+        });
+      }
+      
       const mimeType = req.file.mimetype || 'image/jpeg';
       imageData = `data:${mimeType};base64,${req.file.buffer.toString("base64")}`;
+      
+      console.log("✅ Image processed successfully, base64 length:", imageData.length);
     }
 
     const blog = new Blog({
@@ -31,14 +56,20 @@ router.post("/", upload.single("image"), async (req, res) => {
       author,
       date: date || new Date(),
       image: imageData,
+      source: "manual"
     });
 
-    await blog.save();
+    const savedBlog = await blog.save();
+    console.log("✅ Blog created successfully:", savedBlog.title);
 
-    res.status(201).json({ message: "Blog created successfully", blog });
+    res.status(201).json({ message: "Blog created successfully", blog: savedBlog });
   } catch (err) {
-    console.error("Error creating blog:", err);
-    res.status(500).json({ message: "Server error creating blog" });
+    console.error("❌ Error creating blog:", err);
+    res.status(500).json({ 
+      message: "Server error creating blog", 
+      error: err.message,
+      details: err.toString()
+    });
   }
 });
 

@@ -29,6 +29,12 @@ const AddBlog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validate image size before upload
+    if (image && image.size > 3 * 1024 * 1024) { // 3MB limit
+      toast.error("Image file too large. Please use an image smaller than 3MB.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("content", content);
@@ -127,13 +133,26 @@ const AddBlog = () => {
               onChange={(e) => setDate(e.target.value)}
             />
             <div>
-              <label className="block text-sm font-medium mb-1">Image</label>
+              <label className="block text-sm font-medium mb-1">Image (Max 3MB)</label>
               <input
                 type="file"
                 accept="image/*"
                 className="w-full text-white bg-gray-700 file:bg-blue-600 file:text-white file:rounded file:px-4 file:py-2 file:border-none cursor-pointer"
-                onChange={(e) => setImage(e.target.files[0])}
+                onChange={(e) => {
+                  const file = e.target.files[0];
+                  if (file && file.size > 3 * 1024 * 1024) {
+                    toast.error("Image file too large. Please select an image smaller than 3MB.");
+                    e.target.value = '';
+                    return;
+                  }
+                  setImage(file);
+                }}
               />
+              {image && (
+                <p className="text-xs text-gray-400 mt-1">
+                  Selected: {image.name} ({(image.size / 1024 / 1024).toFixed(2)} MB)
+                </p>
+              )}
             </div>
           </div>
 

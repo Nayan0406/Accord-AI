@@ -19,12 +19,12 @@ const BlogSection = () => {
             .then((data) => {
                 console.log("Blogs fetched:", data.blogs);
                 setBlogs(data.blogs);
-                setLoading(false); // ✅ FIX
+                setLoading(false); 
             })
             .catch((err) => {
                 console.error(err);
                 setError("Failed to fetch blogs");
-                setLoading(false); // ✅ FIX for error scenario too
+                setLoading(false); 
             });
     }, []);
 
@@ -166,14 +166,14 @@ const BlogSection = () => {
                                     className={`px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
                                         currentPage === 1
                                             ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                                            : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1'
+                                            : 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer'
                                     }`}
                                 >
                                     ← Previous
                                 </button>
                                 
                                 <div className="flex items-center gap-2">
-                                    <span className="text-gray-600 font-medium cursor-pointer">
+                                    <span className="text-gray-600 font-medium">
                                         Page {currentPage} of {totalPages}
                                     </span>
                                 </div>
