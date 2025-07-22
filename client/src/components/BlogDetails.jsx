@@ -107,7 +107,7 @@ const BlogDetails = () => {
             </h1>
             <button
               onClick={() => navigate("/blog")}
-              className="text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded shadow-md transition"
+              className="text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded shadow-md transition cursor-pointer"
             >
               ← Back to Blogs
             </button>
