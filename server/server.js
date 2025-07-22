@@ -10,7 +10,6 @@ import authRoutes from "./routes/auth.js";
 import { syncFlaskBlog } from "./utlis/syncFlaskBlog.js";
 import blogRoutes from "./routes/blogRoutes.js";
 
-
 dotenv.config();
 
 const app = express();
@@ -130,11 +129,13 @@ app.delete("/api/blogs/:id", async (req, res) => {
       console.log(`🚀 Server running on port ${process.env.PORT}`);
     });
 
-    // Optional: Set interval for daily sync
+    // Auto-sync every 5 minutes to check for new blogs
     setInterval(() => {
-      console.log("🕒 Daily auto-fetching blogs...");
+      console.log("🕒 Auto-checking for new blogs from Flask...");
       syncFlaskBlog();
-    }, 1000 * 60 * 60 * 24); // 24 hrs
+    }, 1000 * 60 * 5); // 5 minutes
+
+    console.log("🔄 Auto-sync scheduled every 5 minutes");
 
   } catch (err) {
     console.error("❌ MongoDB connection error:", err);

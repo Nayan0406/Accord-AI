@@ -4,7 +4,7 @@ const TermsAndUse = () => {
   return (
     <section className="w-full min-h-screen bg-gradient-to-br from-blue-300 to-blue-50 py-12 px-4 sm:px-6 md:px-8 flex items-start justify-center">
       <div className="w-full max-w-4xl text-gray-800 space-y-6">
-        <h1 className="text-3xl font-bold text-center mb-8">Terms of Use</h1>
+        <h1 className="text-3xl font-bold text-center mb-8">Terms and Use</h1>
 
         <p>
           We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect,
