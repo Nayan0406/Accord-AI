@@ -13,7 +13,18 @@ import ContactForm from './pages/ContactForm';
 import Login from './pages/Login';
 // import Register from './pages/Register';
 import PrivateRoute from './components/PrivateRoute';
+import { useAuth } from './context/AuthContext';
 // import Home from './pages/Home';
+
+// Default route component that checks authentication
+const DefaultRoute = () => {
+  const { isAuthenticated } = useAuth();
+  
+  // If authenticated, redirect to add-blog, otherwise to login
+  return isAuthenticated ? 
+    <Navigate to="/admin/add-blog" replace /> : 
+    <Navigate to="/login" replace />;
+};
 
 function App() {
   const location = useLocation();
@@ -25,12 +36,12 @@ function App() {
 
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/" element={<Register />} /> */}
+        
+        {/* Default route - redirect based on auth status */}
+        <Route path="/" element={<DefaultRoute />} />
 
         {/* Redirect old paths to /admin/* (optional support for older bookmarks) */}
-        {/* <Route path="/home" element={<Navigate to="/admin/home" replace />} /> */}
         <Route path="/add-blog" element={<Navigate to="/admin/add-blog" replace />} />
         <Route path="/contact-form" element={<Navigate to="/admin/contact-form" replace />} />
 
