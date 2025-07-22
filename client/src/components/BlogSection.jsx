@@ -14,7 +14,7 @@ const BlogSection = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/blogs")
+        fetch("https://accord-ai-backend-murex.vercel.app/api/blogs")
             .then((res) => res.json())
             .then((data) => {
                 console.log("Blogs fetched:", data.blogs);
