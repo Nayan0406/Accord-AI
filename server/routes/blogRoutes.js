@@ -1,6 +1,7 @@
 import express from 'express';
 import multer from 'multer';
 import Blog from '../models/Blog.js';
+import DeletedBlog from '../models/DeletedBlog.js';
 import axios from 'axios';
 import { syncFlaskBlog } from '../utlis/syncFlaskBlog.js';
 
@@ -141,6 +142,14 @@ router.delete("/:id", async (req, res) => {
     if (!blog) {
       return res.status(404).json({ message: "Blog not found" });
     }
+
+    // Add to deleted blogs list to prevent re-sync
+    await DeletedBlog.create({
+      title: blog.title,
+      reason: "manual_delete"
+    });
+
+    console.log(`🗑️ Blog deleted and blacklisted: ${blog.title}`);
     res.json({ message: "Blog deleted successfully" });
   } catch (err) {
     console.error("Error deleting blog:", err);

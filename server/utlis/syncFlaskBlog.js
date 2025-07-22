@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import Blog from "../models/Blog.js";
+import DeletedBlog from "../models/DeletedBlog.js";
 
 // Function to scrape automatic blogs from Flask homepage
 export async function scrapeFlaskBlogs() {
@@ -163,6 +164,13 @@ export async function syncFlaskBlog() {
 
     let addedCount = 0;
     for (const flaskBlog of flaskBlogs) {
+      // Check if blog was manually deleted before
+      const isDeleted = await DeletedBlog.findOne({ title: flaskBlog.title });
+      if (isDeleted) {
+        console.log(`🚫 Skipping deleted blog: ${flaskBlog.title}`);
+        continue;
+      }
+
       const existing = await Blog.findOne({ title: flaskBlog.title });
 
       if (!existing) {
