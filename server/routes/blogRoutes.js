@@ -135,13 +135,17 @@ router.get("/sync", async (req, res) => {
   res.json({ message: "Synced blogs from Flask" });
 });
 
-// Clean existing blog content
+// Clean existing blog content and titles
 router.post("/clean-content", async (req, res) => {
   try {
     const blogs = await Blog.find({});
     let cleanedCount = 0;
     
     for (const blog of blogs) {
+      let updated = false;
+      let updateData = {};
+      
+      // Clean content
       const cleanedContent = blog.content
         .replace(/&amp;/g, '&')
         .replace(/&#39;/g, "'")
@@ -154,12 +158,32 @@ router.post("/clean-content", async (req, res) => {
         .trim();
         
       if (cleanedContent !== blog.content) {
-        await Blog.findByIdAndUpdate(blog._id, { content: cleanedContent });
+        updateData.content = cleanedContent;
+        updated = true;
+      }
+      
+      // Clean title
+      const cleanedTitle = blog.title
+        .replace(/&amp;/g, '&')
+        .replace(/&#39;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&nbsp;/g, ' ')
+        .trim();
+        
+      if (cleanedTitle !== blog.title) {
+        updateData.title = cleanedTitle;
+        updated = true;
+      }
+      
+      if (updated) {
+        await Blog.findByIdAndUpdate(blog._id, updateData);
         cleanedCount++;
       }
     }
     
-    res.json({ message: `Cleaned content for ${cleanedCount} blogs` });
+    res.json({ message: `Cleaned content and titles for ${cleanedCount} blogs` });
   } catch (error) {
     res.status(500).json({ message: "Error cleaning content", error: error.message });
   }
