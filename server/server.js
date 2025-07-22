@@ -129,13 +129,13 @@ app.delete("/api/blogs/:id", async (req, res) => {
       console.log(`🚀 Server running on port ${process.env.PORT}`);
     });
 
-    // Auto-sync every 5 minutes to check for new blogs
+    // Auto-sync every 24 hours to check for new blogs
     setInterval(() => {
-      console.log("🕒 Auto-checking for new blogs from Flask...");
+      console.log("🕒 Daily auto-checking for new blogs from Flask...");
       syncFlaskBlog();
-    }, 1000 * 60 * 5); // 5 minutes
+    }, 1000 * 60 * 60 * 24); // 24 hours
 
-    console.log("🔄 Auto-sync scheduled every 5 minutes");
+    console.log("🔄 Auto-sync scheduled every 24 hours");
 
   } catch (err) {
     console.error("❌ MongoDB connection error:", err);
