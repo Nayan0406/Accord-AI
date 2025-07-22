@@ -1,7 +1,6 @@
 import express from 'express';
 import multer from 'multer';
 import Blog from '../models/Blog.js';
-import DeletedBlog from '../models/DeletedBlog.js';
 import axios from 'axios';
 import { syncFlaskBlog } from '../utlis/syncFlaskBlog.js';
 
@@ -135,60 +134,6 @@ router.get("/sync", async (req, res) => {
   res.json({ message: "Synced blogs from Flask" });
 });
 
-// Clean existing blog content and titles
-router.post("/clean-content", async (req, res) => {
-  try {
-    const blogs = await Blog.find({});
-    let cleanedCount = 0;
-    
-    for (const blog of blogs) {
-      let updated = false;
-      let updateData = {};
-      
-      // Clean content
-      const cleanedContent = blog.content
-        .replace(/&amp;/g, '&')
-        .replace(/&#39;/g, "'")
-        .replace(/&quot;/g, '"')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&nbsp;/g, ' ')
-        .replace(/<[^>]*>/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
-        
-      if (cleanedContent !== blog.content) {
-        updateData.content = cleanedContent;
-        updated = true;
-      }
-      
-      // Clean title
-      const cleanedTitle = blog.title
-        .replace(/&amp;/g, '&')
-        .replace(/&#39;/g, "'")
-        .replace(/&quot;/g, '"')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&nbsp;/g, ' ')
-        .trim();
-        
-      if (cleanedTitle !== blog.title) {
-        updateData.title = cleanedTitle;
-        updated = true;
-      }
-      
-      if (updated) {
-        await Blog.findByIdAndUpdate(blog._id, updateData);
-        cleanedCount++;
-      }
-    }
-    
-    res.json({ message: `Cleaned content and titles for ${cleanedCount} blogs` });
-  } catch (error) {
-    res.status(500).json({ message: "Error cleaning content", error: error.message });
-  }
-});
-
 // DELETE /api/blogs/:id
 router.delete("/:id", async (req, res) => {
   try {
@@ -196,14 +141,6 @@ router.delete("/:id", async (req, res) => {
     if (!blog) {
       return res.status(404).json({ message: "Blog not found" });
     }
-
-    // Add to deleted blogs list to prevent re-sync
-    await DeletedBlog.create({
-      title: blog.title,
-      reason: "manual_delete"
-    });
-
-    console.log(`🗑️ Blog deleted and blacklisted: ${blog.title}`);
     res.json({ message: "Blog deleted successfully" });
   } catch (err) {
     console.error("Error deleting blog:", err);
