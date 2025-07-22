@@ -4,6 +4,26 @@ import axios from "axios";
 import Blog from "../models/Blog.js";
 import DeletedBlog from "../models/DeletedBlog.js";
 
+// Function to clean HTML content and entities
+function cleanContent(content) {
+  if (!content) return "";
+  
+  return content
+    // Remove HTML tags
+    .replace(/<[^>]*>/g, ' ')
+    // Decode HTML entities
+    .replace(/&amp;/g, '&')
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ')
+    // Clean up whitespace and newlines
+    .replace(/\n+/g, '\n\n')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 // Function to scrape automatic blogs from Flask homepage
 export async function scrapeFlaskBlogs() {
   try {
@@ -61,18 +81,12 @@ export async function scrapeFlaskBlogs() {
                   // Extract all paragraph content
                   const paragraphs = containerMatch[1].match(/<p>([\s\S]*?)<\/p>/g);
                   if (paragraphs) {
-                    blogContent = paragraphs
+                    const rawContent = paragraphs
                       .map(p => p.replace(/<[^>]*>/g, '')) // Remove HTML tags
-                      .join('\n\n') // Join paragraphs with double newlines
-                      .replace(/&nbsp;/g, ' ') // Replace &nbsp; with space
-                      .replace(/&amp;/g, '&') // Replace &amp; with &
-                      .replace(/&lt;/g, '<') // Replace &lt; with <
-                      .replace(/&gt;/g, '>') // Replace &gt; with >
-                      .replace(/&quot;/g, '"') // Replace &quot; with "
-                      .replace(/&#39;/g, "'") // Replace &#39; with '
-                      .trim();
+                      .join('\n\n'); // Join paragraphs with double newlines
                     
-                    console.log(`✅ Extracted ${blogContent.length} characters of content from ${blogUrl}`);
+                    blogContent = cleanContent(rawContent);
+                    console.log(`✅ Extracted ${blogContent.length} characters of cleaned content from ${blogUrl}`);
                   }
                 }
               } catch (contentError) {
@@ -178,13 +192,16 @@ export async function syncFlaskBlog() {
         let content = flaskBlog.description || flaskBlog.content || `Automatic blog: ${flaskBlog.title}`;
         let author = flaskBlog.author || "AutoBot";
         
+        // Clean content from HTML entities and formatting
+        content = cleanContent(content);
+        
         // If this is from Flask API (not scraped), ensure we have proper content
         if (!flaskBlog.source || flaskBlog.source !== "auto-scraped") {
-          content = flaskBlog.content || flaskBlog.description || `Automatic blog: ${flaskBlog.title}`;
+          content = cleanContent(flaskBlog.content || flaskBlog.description || `Automatic blog: ${flaskBlog.title}`);
         }
 
         await Blog.create({
-          title: flaskBlog.title,
+          title: cleanContent(flaskBlog.title),
           content: content,
           author: author,
           date: new Date(flaskBlog.date),
@@ -193,7 +210,7 @@ export async function syncFlaskBlog() {
           source: flaskBlog.source || "auto"
         });
 
-        console.log(`✅ Added blog: ${flaskBlog.title} by ${author}`);
+        console.log(`✅ Added cleaned blog: ${flaskBlog.title} by ${author}`);
         addedCount++;
       } else {
         console.log(`⏭️ Blog already exists: ${flaskBlog.title}`);

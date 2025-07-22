@@ -135,6 +135,36 @@ router.get("/sync", async (req, res) => {
   res.json({ message: "Synced blogs from Flask" });
 });
 
+// Clean existing blog content
+router.post("/clean-content", async (req, res) => {
+  try {
+    const blogs = await Blog.find({});
+    let cleanedCount = 0;
+    
+    for (const blog of blogs) {
+      const cleanedContent = blog.content
+        .replace(/&amp;/g, '&')
+        .replace(/&#39;/g, "'")
+        .replace(/&quot;/g, '"')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&nbsp;/g, ' ')
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+        
+      if (cleanedContent !== blog.content) {
+        await Blog.findByIdAndUpdate(blog._id, { content: cleanedContent });
+        cleanedCount++;
+      }
+    }
+    
+    res.json({ message: `Cleaned content for ${cleanedCount} blogs` });
+  } catch (error) {
+    res.status(500).json({ message: "Error cleaning content", error: error.message });
+  }
+});
+
 // DELETE /api/blogs/:id
 router.delete("/:id", async (req, res) => {
   try {
