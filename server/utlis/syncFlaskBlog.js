@@ -115,19 +115,21 @@ export async function syncFlaskBlog() {
   try {
     console.log("🔄 Starting Flask blog sync...");
     
+    // First, delete old automatic blogs to make space for new ones
+    const oldAutoBlogs = await Blog.find({ 
+      source: { $in: ["auto", "auto-scraped"] } 
+    });
+    
+    if (oldAutoBlogs.length > 0) {
+      await Blog.deleteMany({ 
+        source: { $in: ["auto", "auto-scraped"] } 
+      });
+      console.log(`🗑️ Deleted ${oldAutoBlogs.length} old automatic blogs`);
+    }
+    
     // Check if we already synced today
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    
-    const todayBlogs = await Blog.find({
-      date: { $gte: today },
-      source: { $in: ["auto", "auto-scraped"] }
-    });
-    
-    if (todayBlogs.length > 0) {
-      console.log(`⏭️ Already synced ${todayBlogs.length} blogs today. Skipping sync.`);
-      return;
-    }
     
     // Try both URLs in case one doesn't work
     const urls = [
@@ -188,27 +190,14 @@ export async function syncFlaskBlog() {
         break;
       }
       
-      // Enhanced duplicate checking - check by title and similar content
-      const existing = await Blog.findOne({
-        $or: [
-          { title: flaskBlog.title },
-          { title: { $regex: new RegExp(flaskBlog.title.replace(/[^a-zA-Z0-9\s]/g, ''), 'i') } }
-        ]
+      // Since we deleted old auto blogs, we can add new ones without complex duplicate checking
+      // Only check if manually added blogs have same title
+      const existing = await Blog.findOne({ 
+        title: flaskBlog.title,
+        source: { $nin: ["auto", "auto-scraped"] } // Only check non-automatic blogs
       });
 
       if (!existing) {
-        // Check if similar content already exists (first 100 chars)
-        const contentPreview = (flaskBlog.description || flaskBlog.content || '').substring(0, 100);
-        if (contentPreview.length > 20) {
-          const similarContent = await Blog.findOne({
-            content: { $regex: new RegExp(contentPreview.replace(/[^a-zA-Z0-9\s]/g, ''), 'i') }
-          });
-          
-          if (similarContent) {
-            console.log(`🔄 Similar content found for: ${flaskBlog.title}. Skipping.`);
-            continue;
-          }
-        }
         // Determine content and author based on source
         let content = flaskBlog.description || flaskBlog.content || `Automatic blog: ${flaskBlog.title}`;
         let author = flaskBlog.author || "AutoBot";
