@@ -23,8 +23,11 @@ export async function scrapeFlaskBlogs() {
         
         if (cardMatches) {
           const blogs = [];
+          let processedCount = 0;
+          const maxBlogs = 3; // Limit scraped blogs
           
           for (const cardMatch of cardMatches) {
+            if (processedCount >= maxBlogs) break;
             // Extract image URL
             const imageMatch = cardMatch.match(/<img src="([^"]+)"/);
             // Extract title
@@ -87,6 +90,8 @@ export async function scrapeFlaskBlogs() {
                 date: new Date().toISOString().split('T')[0],
                 source: "auto-scraped"
               });
+              
+              processedCount++;
             }
           }
           
@@ -110,10 +115,23 @@ export async function syncFlaskBlog() {
   try {
     console.log("🔄 Starting Flask blog sync...");
     
+    // Check if we already synced today
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const todayBlogs = await Blog.find({
+      date: { $gte: today },
+      source: { $in: ["auto", "auto-scraped"] }
+    });
+    
+    if (todayBlogs.length > 0) {
+      console.log(`⏭️ Already synced ${todayBlogs.length} blogs today. Skipping sync.`);
+      return;
+    }
+    
     // Try both URLs in case one doesn't work
     const urls = [
-      "http://127.0.0.1:5001/api/blogs",
-      "http://localhost:5001/api/blogs"
+      "https://tech-blog-lqer.onrender.com/api/blogs"
     ];
     
     let flaskBlogs = [];
@@ -162,10 +180,35 @@ export async function syncFlaskBlog() {
     console.log("Flask blogs raw:", flaskBlogs);
 
     let addedCount = 0;
+    let maxDailyBlogs = 5; // Maximum blogs per day
+    
     for (const flaskBlog of flaskBlogs) {
-      const existing = await Blog.findOne({ title: flaskBlog.title });
+      if (addedCount >= maxDailyBlogs) {
+        console.log(`⏹️ Reached daily limit of ${maxDailyBlogs} blogs. Stopping sync.`);
+        break;
+      }
+      
+      // Enhanced duplicate checking - check by title and similar content
+      const existing = await Blog.findOne({
+        $or: [
+          { title: flaskBlog.title },
+          { title: { $regex: new RegExp(flaskBlog.title.replace(/[^a-zA-Z0-9\s]/g, ''), 'i') } }
+        ]
+      });
 
       if (!existing) {
+        // Check if similar content already exists (first 100 chars)
+        const contentPreview = (flaskBlog.description || flaskBlog.content || '').substring(0, 100);
+        if (contentPreview.length > 20) {
+          const similarContent = await Blog.findOne({
+            content: { $regex: new RegExp(contentPreview.replace(/[^a-zA-Z0-9\s]/g, ''), 'i') }
+          });
+          
+          if (similarContent) {
+            console.log(`🔄 Similar content found for: ${flaskBlog.title}. Skipping.`);
+            continue;
+          }
+        }
         // Determine content and author based on source
         let content = flaskBlog.description || flaskBlog.content || `Automatic blog: ${flaskBlog.title}`;
         let author = flaskBlog.author || "AutoBot";
