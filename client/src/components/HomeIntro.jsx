@@ -61,16 +61,6 @@ const HomeIntro = () => (
                 </a>
               ))}
             </div>
-
-            <div className="md:hidden text-center mt-6">
-              <div className="text-white font-poppins text-lg">
-                BRAND'S DIGITAL<br />IDENTITY
-              </div>
-              <Link to="/about" className="text-white mt-4 font-semibold text-lg flex items-center justify-center gap-2 hover:underline">
-                Explore more
-                <IoIosArrowDropright />
-              </Link>
-            </div>
           </div>
 
           {/* Desktop Social Icons & Brand */}
@@ -82,13 +72,7 @@ const HomeIntro = () => (
                 </a>
               ))}
             </div>
-            <div className="text-white mt-8 font-poppins text-lg lg:text-xl text-center">
-              BRAND'S DIGITAL<br />IDENTITY
-            </div>
-            <Link to="/about" className="text-white mt-8 font-semibold text-lg lg:text-xl flex items-center gap-2 hover:underline">
-              Explore more
-              <IoIosArrowDropright />
-            </Link>
+            
           </div>
         </div>
 
